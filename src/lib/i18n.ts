@@ -36,7 +36,6 @@ const resources = {
       totalBookings: "Total Bookings",
       activeUsers: "Active Users",
       revenue: "Revenue",
-      activities: "Activities",
       
       // Bookings
       newBooking: "New Booking",
@@ -95,7 +94,6 @@ const resources = {
       totalBookings: "إجمالي الحجوزات",
       activeUsers: "المستخدمين النشطين",
       revenue: "الإيرادات",
-      activities: "الأنشطة",
       
       // Bookings
       newBooking: "حجز جديد",
