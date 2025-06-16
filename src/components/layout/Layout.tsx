@@ -27,17 +27,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     open: {
       marginLeft: language === 'ar' ? 0 : sidebarOpen ? 320 : 0,
       marginRight: language === 'ar' ? sidebarOpen ? 320 : 0 : 0,
-      transition: { type: "spring", stiffness: 300, damping: 30 }
+      transition: { type: "spring" as const, stiffness: 300, damping: 30 }
     },
     closed: {
       marginLeft: 0,
       marginRight: 0,
-      transition: { type: "spring", stiffness: 300, damping: 30 }
+      transition: { type: "spring" as const, stiffness: 300, damping: 30 }
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 dark:from-gray-950 dark:via-slate-900 dark:to-gray-900 transition-colors">
       <Sidebar />
       
       <motion.div

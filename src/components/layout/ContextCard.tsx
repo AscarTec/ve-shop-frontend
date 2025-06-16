@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useAppStore } from '@/stores/useAppStore';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Info, TrendingUp, Users, Calendar } from 'lucide-react';
+import { Info, TrendingUp, Users, Calendar, Activity, Waves, MapPin, CreditCard } from 'lucide-react';
 
 const ContextCard = () => {
   const { language, sidebarOpen } = useAppStore();
@@ -37,15 +37,48 @@ const ContextCard = () => {
             { label: t('cancelled'), value: '12' },
           ]
         };
-      case '/users':
+      case '/activities/swimming':
+        return {
+          icon: Waves,
+          title: 'Swimming Pool Management',
+          description: 'Manage pool schedules and bookings.',
+          stats: [
+            { label: 'Available Slots', value: '12' },
+            { label: 'Booked Today', value: '8' },
+            { label: 'Pool Capacity', value: '25' },
+          ]
+        };
+      case '/activities/fields':
+        return {
+          icon: MapPin,
+          title: 'Sports Fields',
+          description: 'Manage field bookings and maintenance.',
+          stats: [
+            { label: 'Total Fields', value: '6' },
+            { label: 'Available Now', value: '4' },
+            { label: 'Under Maintenance', value: '1' },
+          ]
+        };
+      case '/clients':
         return {
           icon: Users,
-          title: 'User Management',
-          description: 'Manage user accounts and permissions.',
+          title: 'Client Management',
+          description: 'Manage customer accounts and memberships.',
           stats: [
-            { label: 'Total Users', value: '856' },
-            { label: 'Active Today', value: '234' },
-            { label: 'New This Week', value: '45' },
+            { label: 'Active Members', value: '856' },
+            { label: 'New This Month', value: '45' },
+            { label: 'Premium Members', value: '234' },
+          ]
+        };
+      case '/payments':
+        return {
+          icon: CreditCard,
+          title: 'Payment Processing',
+          description: 'Track payments and financial transactions.',
+          stats: [
+            { label: 'Today\'s Revenue', value: '$2,340' },
+            { label: 'Pending Payments', value: '12' },
+            { label: 'Refunds', value: '3' },
           ]
         };
       default:
@@ -72,7 +105,7 @@ const ContextCard = () => {
       x: 0,
       scale: 1,
       transition: { 
-        type: "spring", 
+        type: "spring" as const, 
         stiffness: 300, 
         damping: 30,
         delay: 0.2
@@ -89,11 +122,11 @@ const ContextCard = () => {
         language === 'ar' 
           ? `left-6 ${sidebarOpen ? 'lg:left-[calc(320px+24px)]' : 'lg:left-6'}` 
           : `right-6 ${sidebarOpen ? 'lg:right-[calc(320px+24px)]' : 'lg:right-6'}`
-      } w-80 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 z-20 transition-all duration-300`}
+      } w-80 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 p-6 z-20 transition-all duration-300`}
     >
       <div className="flex items-center gap-3 mb-4">
-        <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-          <Icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+        <div className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl">
+          <Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
         </div>
         <div>
           <h3 className="font-semibold text-gray-900 dark:text-white">
@@ -108,11 +141,11 @@ const ContextCard = () => {
       {contextInfo.stats.length > 0 && (
         <div className="space-y-3">
           {contextInfo.stats.map((stat, index) => (
-            <div key={index} className="flex justify-between items-center">
-              <span className="text-sm text-gray-600 dark:text-gray-400">
+            <div key={index} className="flex justify-between items-center p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-xl">
+              <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">
                 {stat.label}
               </span>
-              <span className="font-semibold text-gray-900 dark:text-white">
+              <span className="font-bold text-gray-900 dark:text-white text-lg">
                 {stat.value}
               </span>
             </div>
