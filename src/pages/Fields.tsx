@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, Users, Clock, Plus } from 'lucide-react';
@@ -29,7 +28,7 @@ const Fields = () => {
       available: 1,
       sessions: [
         { time: '09:00 - 10:30', field: 'Court A', status: 'booked', team: 'Eagles Basketball', players: '10/10' },
-        { time: '10:30 - 12: », field: 'Court A', status: 'available', team: '-', players: '0/10' },
+        { time: '10:30 - 12:00', field: 'Court A', status: 'available', team: '-', players: '0/10' },
         { time: '15:00 - 16:30', field: 'Court B', status: 'available', team: '-', players: '0/10' },
         { time: '17:00 - 18:30', field: 'Court B', status: 'booked', team: 'Thunder Squad', players: '8/10' },
       ]
