@@ -121,7 +121,7 @@ const ClientList = () => {
                 <TableHead className="hidden md:table-cell">{t('email')}</TableHead>
                 <TableHead className="hidden sm:table-cell">{t('phone')}</TableHead>
                 <TableHead className="hidden lg:table-cell">{t('gender')}</TableHead>
-                <TableHea className="hidden lg:table-cell">{t('created_at')}</TableHead>
+                <TableHead className="hidden lg:table-cell">{t('created_at')}</TableHead>
                 <TableHead className="text-right">{t('actions')}</TableHead>
               </TableRow>
             </TableHeader>
