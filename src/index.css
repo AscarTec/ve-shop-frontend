@@ -403,7 +403,7 @@
   }
   
   .btn-primary {
-    @apply border-2 border-primary-800;
+    @apply border-2 border-primary-700;
   }
 }
 
