@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { useAppStore } from '@/stores/useAppStore';
@@ -41,14 +41,22 @@ const Sidebar = () => {
     { icon: Settings, label: t('settings'), href: '/settings' },
   ];
 
-  const sidebarVariants = {
+  const sidebarVariants: Variants = {
     open: {
       x: 0,
-      transition: { type: "spring", stiffness: 300, damping: 30 }
+      transition: { 
+        type: "spring" as const, 
+        stiffness: 300, 
+        damping: 30 
+      }
     },
     closed: {
       x: language === 'ar' ? 320 : -320,
-      transition: { type: "spring", stiffness: 300, damping: 30 }
+      transition: { 
+        type: "spring" as const, 
+        stiffness: 300, 
+        damping: 30 
+      }
     }
   };
 
@@ -108,7 +116,7 @@ const Sidebar = () => {
                     to={item.href}
                     className={({ isActive }) =>
                       cn(
-                        'nav-link',
+                        'nav-link group',
                         isActive ? 'nav-link-active' : 'nav-link-inactive'
                       )
                     }
