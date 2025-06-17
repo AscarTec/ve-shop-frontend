@@ -1,62 +1,40 @@
 
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { useAppStore } from '@/stores/useAppStore';
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
 import AuthModal from '@/components/auth/AuthModal';
 import ContextCard from './ContextCard';
+import DashboardLayout from './DashboardLayout';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const { sidebarOpen, language, theme } = useAppStore();
+  const { language, theme } = useAppStore();
 
   useEffect(() => {
-    // Set initial theme
+    // Set theme
     document.documentElement.classList.toggle('dark', theme === 'dark');
     
-    // Set initial direction and language
+    // Set direction and language
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = language;
+    
+    // Add font loading class
+    document.documentElement.classList.add('antialiased');
   }, [theme, language]);
 
-  const contentVariants = {
-    open: {
-      marginLeft: language === 'ar' ? 0 : sidebarOpen ? 320 : 0,
-      marginRight: language === 'ar' ? sidebarOpen ? 320 : 0 : 0,
-      transition: { type: "spring" as const, stiffness: 300, damping: 30 }
-    },
-    closed: {
-      marginLeft: 0,
-      marginRight: 0,
-      transition: { type: "spring" as const, stiffness: 300, damping: 30 }
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 dark:from-gray-950 dark:via-slate-900 dark:to-gray-900 transition-colors">
-      <Sidebar />
-      
-      <motion.div
-        variants={contentVariants}
-        animate={sidebarOpen ? "open" : "closed"}
-        className="lg:ml-0"
+    <div className="min-h-screen gradient-surface transition-all duration-300">
+      <DashboardLayout
+        sidebar={<Sidebar />}
+        topbar={<Topbar />}
       >
-        <Topbar />
-        
-        <main className="relative">
-          <div className="p-6">
-            {children}
-          </div>
-          
-          {/* Context Card - positioned opposite to sidebar */}
-          <ContextCard />
-        </main>
-      </motion.div>
-
+        {children}
+        <ContextCard />
+      </DashboardLayout>
       <AuthModal />
     </div>
   );

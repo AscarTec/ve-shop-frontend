@@ -3,8 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
-
+/* CSS Custom Properties for theming */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -45,6 +44,12 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom surface colors */
+    --surface: #ffffff;
+    --surface-50: #f8fafc;
+    --surface-100: #f1f5f9;
+    --surface-200: #e2e8f0;
   }
 
   .dark {
@@ -83,43 +88,244 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Dark mode surface colors */
+    --surface: #0f172a;
+    --surface-50: #1e293b;
+    --surface-100: #334155;
+    --surface-200: #475569;
   }
 }
 
+/* Base styles */
 @layer base {
   * {
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground font-sans;
-  }
-
   html {
     scroll-behavior: smooth;
+    font-feature-settings: "cv03", "cv04", "cv11";
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold text-foreground;
+  }
+
+  h1 {
+    @apply text-3xl lg:text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl lg:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl lg:text-2xl;
+  }
+
+  h4 {
+    @apply text-lg lg:text-xl;
+  }
+
+  /* Focus styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Selection styles */
+  ::selection {
+    @apply bg-primary/20 text-primary-foreground;
   }
 }
 
-/* Custom animations and styles for the sports booking platform */
+/* Component styles */
 @layer components {
-  .gradient-bg {
-    @apply bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900/20;
+  /* Layout utilities */
+  .page-container {
+    @apply mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8;
   }
 
+  .content-wrapper {
+    @apply flex flex-col lg:flex-row min-h-screen overflow-hidden;
+  }
+
+  .main-content {
+    @apply flex-1 overflow-auto bg-gradient-to-br from-slate-50/50 via-blue-50/30 to-indigo-50/20 dark:from-gray-950/50 dark:via-slate-900/30 dark:to-gray-900/20;
+  }
+
+  /* Surface styles */
+  .surface {
+    @apply bg-surface border border-border;
+  }
+
+  .surface-elevated {
+    @apply bg-surface border border-border shadow-card dark:shadow-card-dark;
+  }
+
+  .surface-glass {
+    @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-glass;
+  }
+
+  /* Card styles */
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    @apply transition-all duration-300 hover:shadow-elevated dark:hover:shadow-elevated-dark hover:-translate-y-1;
   }
 
-  .navbar-blur {
-    @apply backdrop-blur-md bg-white/80 dark:bg-gray-900/80;
+  .card-interactive {
+    @apply transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer;
   }
 
-  .sidebar-blur {
-    @apply backdrop-blur-md bg-white/95 dark:bg-gray-900/95;
+  /* Text styles */
+  .text-heading {
+    @apply text-gray-900 dark:text-gray-100 font-heading;
+  }
+
+  .text-body {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+
+  .text-muted {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+
+  .text-accent {
+    @apply text-accent-600 dark:text-accent-400;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-700 hover:to-primary-600 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-secondary-600 to-secondary-500 hover:from-secondary-700 hover:to-secondary-600 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  /* Navigation styles */
+  .nav-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group relative overflow-hidden;
+  }
+
+  .nav-link-active {
+    @apply bg-gradient-to-r from-primary-500/10 to-primary-600/10 text-primary-600 dark:text-primary-400 shadow-lg shadow-primary-500/20;
+  }
+
+  .nav-link-inactive {
+    @apply text-gray-700 dark:text-gray-300 hover:bg-gray-100/70 dark:hover:bg-gray-800/70 hover:scale-105;
+  }
+
+  /* Animation utilities */
+  .animate-enter {
+    @apply animate-fade-in;
+  }
+
+  .animate-slide-in-right {
+    @apply animate-slide-in-right;
+  }
+
+  .animate-slide-in-left {
+    @apply animate-slide-in-left;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-50 via-white to-primary-100/50 dark:from-primary-950/20 dark:via-gray-900 dark:to-primary-900/10;
+  }
+
+  .gradient-surface {
+    @apply bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 dark:from-gray-950 dark:via-slate-900 dark:to-gray-900;
+  }
+
+  /* RTL support */
+  .rtl-flip {
+    transform: scaleX(-1);
+  }
+
+  [dir="rtl"] .rtl-auto {
+    transform: scaleX(-1);
+  }
+
+  /* Sidebar specific */
+  .sidebar-backdrop {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden;
+  }
+
+  .sidebar-panel {
+    @apply fixed top-0 h-full w-80 surface-glass z-50 shadow-2xl transition-transform duration-300 ease-out;
+  }
+
+  .sidebar-panel-ltr {
+    @apply left-0;
+  }
+
+  .sidebar-panel-rtl {
+    @apply right-0;
+  }
+
+  /* Responsive utilities */
+  .hide-mobile {
+    @apply hidden md:block;
+  }
+
+  .show-mobile {
+    @apply block md:hidden;
+  }
+
+  .responsive-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .responsive-margin {
+    @apply mx-4 sm:mx-6 lg:mx-8;
   }
 }
 
-/* RTL specific styles */
+/* Utility layer */
+@layer utilities {
+  /* Spacing utilities */
+  .space-section {
+    @apply space-y-8;
+  }
+
+  .space-content {
+    @apply space-y-4;
+  }
+
+  .space-compact {
+    @apply space-y-2;
+  }
+
+  /* Border utilities */
+  .border-soft {
+    @apply border border-gray-200/60 dark:border-gray-700/60;
+  }
+
+  .border-strong {
+    @apply border-2 border-gray-300 dark:border-gray-600;
+  }
+
+  /* Transition utilities */
+  .transition-base {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .transition-slow {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .transition-fast {
+    @apply transition-all duration-150 ease-out;
+  }
+}
+
+/* RTL specific overrides */
 [dir="rtl"] {
   .text-left {
     text-align: right;
@@ -128,9 +334,19 @@
   .text-right {
     text-align: left;
   }
+
+  .ml-auto {
+    margin-left: unset;
+    margin-right: auto;
+  }
+
+  .mr-auto {
+    margin-right: unset;
+    margin-left: auto;
+  }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -148,18 +364,56 @@
   @apply bg-gray-400 dark:bg-gray-500;
 }
 
-/* Loading animation */
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
+/* Loading and skeleton styles */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
   }
 }
 
-.animate-spin-slow {
-  animation: spin 3s linear infinite;
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
 }
 
-/* Smooth transitions for theme switching */
-* {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+.dark .skeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200px 100%;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-break-inside-avoid {
+    break-inside: avoid;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .surface {
+    @apply border-2;
+  }
+  
+  .btn-primary {
+    @apply border-2 border-primary-800;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

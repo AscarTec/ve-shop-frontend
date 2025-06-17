@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useAppStore } from '@/stores/useAppStore';
+import { cn } from '@/lib/utils';
 import { 
   Menu, 
   Sun, 
@@ -42,24 +43,27 @@ const Topbar = () => {
 
   return (
     <motion.header
-      className="sticky top-0 z-30 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700"
+      className="sticky top-0 z-30 surface-glass border-b border-soft"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
-      <div className="flex items-center justify-between px-6 py-4">
+      <div className="flex items-center justify-between h-16 responsive-padding">
         <div className="flex items-center gap-4">
           <Button
             variant="ghost"
             size="sm"
             onClick={toggleSidebar}
-            className="lg:hidden"
+            className={cn(
+              "lg:hidden transition-transform",
+              language === 'ar' && "rtl-auto"
+            )}
           >
             <Menu className="w-5 h-5" />
           </Button>
           
-          <div className="hidden lg:block">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+          <div className="hide-mobile">
+            <h2 className="text-lg font-semibold text-heading">
               {t('welcome')}
             </h2>
           </div>
@@ -71,10 +75,10 @@ const Topbar = () => {
             variant="ghost"
             size="sm"
             onClick={handleLanguageToggle}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800"
           >
             <Globe className="w-4 h-4" />
-            <span className="text-sm font-medium">
+            <span className="text-sm font-medium hide-mobile">
               {language.toUpperCase()}
             </span>
           </Button>
@@ -84,6 +88,7 @@ const Topbar = () => {
             variant="ghost"
             size="sm"
             onClick={toggleTheme}
+            className="hover:bg-gray-100 dark:hover:bg-gray-800"
           >
             {theme === 'light' ? (
               <Moon className="w-4 h-4" />
@@ -96,20 +101,23 @@ const Topbar = () => {
           {isAuthenticated ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center gap-2">
+                <Button variant="ghost" className="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                   <User className="w-4 h-4" />
-                  <span className="hidden sm:inline">
+                  <span className="hide-mobile">
                     {user?.name || 'User'}
                   </span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
-                <DropdownMenuItem>
+              <DropdownMenuContent align="end" className="w-48 surface-elevated">
+                <DropdownMenuItem className="hover:bg-gray-50 dark:hover:bg-gray-800">
                   <User className="w-4 h-4 mr-2" />
                   Profile
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={logout}>
+                <DropdownMenuItem 
+                  onClick={logout}
+                  className="hover:bg-gray-50 dark:hover:bg-gray-800"
+                >
                   <LogOut className="w-4 h-4 mr-2" />
                   {t('logout')}
                 </DropdownMenuItem>
@@ -118,9 +126,12 @@ const Topbar = () => {
           ) : (
             <Button 
               onClick={() => setShowAuthModal(true)}
-              className="bg-blue-600 hover:bg-blue-700"
+              className="btn-primary"
             >
-              {t('login')}
+              <span className="hide-mobile">{t('login')}</span>
+              <span className="show-mobile">
+                <User className="w-4 h-4" />
+              </span>
             </Button>
           )}
         </div>
