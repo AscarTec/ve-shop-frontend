@@ -2,72 +2,71 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-interface AppState {
-  // Theme
-  theme: 'light' | 'dark';
-  toggleTheme: () => void;
-  
-  // Language
-  language: 'en' | 'ar';
-  setLanguage: (lang: 'en' | 'ar') => void;
-  
-  // Sidebar
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: 'admin' | 'manager' | 'user';
+}
+
+export interface AppState {
+  // UI State
   sidebarOpen: boolean;
-  toggleSidebar: () => void;
-  setSidebarOpen: (open: boolean) => void;
+  theme: 'light' | 'dark';
+  language: 'ar' | 'en';
   
-  // Auth
+  // User State
+  user: User | null;
   isAuthenticated: boolean;
-  user: any | null;
-  setAuth: (user: any) => void;
+  
+  // Modals
+  showAuthModal: boolean;
+  
+  // Actions
+  setSidebarOpen: (open: boolean) => void;
+  toggleSidebar: () => void;
+  setTheme: (theme: 'light' | 'dark') => void;
+  toggleTheme: () => void;
+  setLanguage: (language: 'ar' | 'en') => void;
+  
+  // Auth Actions
+  login: (user: User) => void;
   logout: () => void;
   
-  // Modal
-  showAuthModal: boolean;
+  // Modal Actions
   setShowAuthModal: (show: boolean) => void;
 }
 
 export const useAppStore = create<AppState>()(
   persist(
     (set, get) => ({
-      // Theme
+      // Initial State
+      sidebarOpen: true,
       theme: 'light',
-      toggleTheme: () => {
-        const newTheme = get().theme === 'light' ? 'dark' : 'light';
-        set({ theme: newTheme });
-        document.documentElement.classList.toggle('dark', newTheme === 'dark');
-      },
-      
-      // Language
-      language: 'en',
-      setLanguage: (lang) => {
-        set({ language: lang });
-        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-        document.documentElement.lang = lang;
-      },
-      
-      // Sidebar
-      sidebarOpen: false,
-      toggleSidebar: () => set((state) => ({ sidebarOpen: !state.sidebarOpen })),
-      setSidebarOpen: (open) => set({ sidebarOpen: open }),
-      
-      // Auth
-      isAuthenticated: false,
-      user: null,
-      setAuth: (user) => set({ isAuthenticated: true, user }),
-      logout: () => set({ isAuthenticated: false, user: null }),
-      
-      // Modal
+      language: 'ar',
       showAuthModal: false,
+      user: null,
+      isAuthenticated: false,
+      
+      // UI Actions
+      setSidebarOpen: (open) => set({ sidebarOpen: open }),
+      toggleSidebar: () => set({ sidebarOpen: !get().sidebarOpen }),
+      setTheme: (theme) => set({ theme }),
+      toggleTheme: () => set({ theme: get().theme === 'light' ? 'dark' : 'light' }),
+      setLanguage: (language) => set({ language }),
+      
+      // Auth Actions
+      login: (user) => set({ user, isAuthenticated: true }),
+      logout: () => set({ user: null, isAuthenticated: false }),
+      
+      // Modal Actions
       setShowAuthModal: (show) => set({ showAuthModal: show }),
     }),
     {
-      name: 'sports-booking-store',
+      name: 'app-store',
       partialize: (state) => ({
         theme: state.theme,
         language: state.language,
-        isAuthenticated: state.isAuthenticated,
-        user: state.user,
       }),
     }
   )

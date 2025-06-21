@@ -125,8 +125,8 @@ const ContextCard = () => {
       } w-80 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 p-6 z-20 transition-all duration-300`}
     >
       <div className="flex items-center gap-3 mb-4">
-        <div className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl">
-          <Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+        <div className="p-3 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl">
+          <Icon className="w-6 h-6 text-primary" />
         </div>
         <div>
           <h3 className="font-semibold text-gray-900 dark:text-white">

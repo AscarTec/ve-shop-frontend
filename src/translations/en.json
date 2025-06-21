@@ -1,0 +1,70 @@
+
+{ 
+  "navigation": {
+    "main": "Main",
+    "activities": "Activities",
+    "management": "Management",
+    "system": "System",
+    "dashboard": "Dashboard",
+    "bookings": "Bookings",
+    "clients": "Clients", 
+      "users": "Users",
+      "roles": "User Roles",
+      "payments": "Payments",
+      "profile": "Profile",
+      "settings": "Settings"
+    },
+  "common": {
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "filter": "Filter",
+    "loading": "Loading...",
+    "welcome": "Welcome",
+    "confirm": "Confirm",
+    "reject": "Reject",
+    "pending": "Pending",
+    "confirmed": "Confirmed",
+    "rejected": "Rejected"
+  },
+  "auth": {
+    "loginTitle": "Sign In to Your Account",
+    "registerTitle": "Create New Account",
+    "email": "Email Address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?"
+  },
+  "home": {
+    "heroTitle": "Book Your Sports Activities",
+    "heroSubtitle": "Find and book the best sports facilities and swimming pools in your area",
+    "getStarted": "Get Started",
+    "features": {
+      "easyBooking": "Easy Booking",
+      "multipleActivities": "Multiple Activities",
+      "flexibleScheduling": "Flexible Scheduling"
+    }
+  },
+  "bookings": {
+    "title": "My Bookings",
+    "status": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "cancelled": "Cancelled"
+    }
+  },
+  "admin": {
+    "dashboard": "Admin Dashboard",
+    "todaysBookings": "Today's Bookings",
+    "revenue": "Revenue",
+    "pendingApprovals": "Pending Approvals"
+  }
+}

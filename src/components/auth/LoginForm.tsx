@@ -11,6 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
+import { useLoadingStore } from '@/stores/useLoadingStore';
 
 const loginSchema = z.object({
   email: z.string().email('يرجى إدخال بريد إلكتروني صحيح'),
@@ -19,13 +20,16 @@ const loginSchema = z.object({
 
 type LoginForm = z.infer<typeof loginSchema>;
 
-interface AuthCardProps {
-  onClose: () => void;
+interface LoginFormProps {
+  onClose?: () => void;
+  onSwitchToRegister?: () => void;
 }
 
-const AuthCard: React.FC<AuthCardProps> = ({ onClose }) => {
+const LoginForm: React.FC<LoginFormProps> = ({ onClose, onSwitchToRegister }) => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const showLoading = useLoadingStore((state) => state.showLoading);
+  const hideLoading = useLoadingStore((state) => state.hideLoading);
 
   const form = useForm<LoginForm>({
     resolver: zodResolver(loginSchema),
@@ -37,7 +41,8 @@ const AuthCard: React.FC<AuthCardProps> = ({ onClose }) => {
 
   const onSubmit = async (data: LoginForm) => {
     setIsLoading(true);
-    
+    showLoading();
+
     try {
       const { error } = await supabase.auth.signInWithPassword({
         email: data.email,
@@ -50,6 +55,7 @@ const AuthCard: React.FC<AuthCardProps> = ({ onClose }) => {
           description: error.message,
           variant: 'destructive',
         });
+        hideLoading();
       } else {
         toast({
           title: 'تم تسجيل الدخول بنجاح',
@@ -64,6 +70,7 @@ const AuthCard: React.FC<AuthCardProps> = ({ onClose }) => {
         description: 'حدث خطأ غير متوقع',
         variant: 'destructive',
       });
+      hideLoading();
     } finally {
       setIsLoading(false);
     }
@@ -73,7 +80,7 @@ const AuthCard: React.FC<AuthCardProps> = ({ onClose }) => {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md mx-auto"
+      className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 w-full max-w-md mx-auto transition-all duration-300 hover:shadow-2xl"
     >
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">تسجيل الدخول</h2>
@@ -94,7 +101,7 @@ const AuthCard: React.FC<AuthCardProps> = ({ onClose }) => {
                     <Input
                       type="email"
                       placeholder="example@domain.com"
-                      className="pr-10 text-right"
+                      className="h-12 pr-10 pl-4 text-right rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm"
                       {...field}
                     />
                   </div>
@@ -116,7 +123,7 @@ const AuthCard: React.FC<AuthCardProps> = ({ onClose }) => {
                     <Input
                       type="password"
                       placeholder="••••••••"
-                      className="pr-10 text-right"
+                      className="h-12 pr-10 pl-4 text-right rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm"
                       {...field}
                     />
                   </div>
@@ -129,7 +136,7 @@ const AuthCard: React.FC<AuthCardProps> = ({ onClose }) => {
           <Button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-primary-500 hover:bg-primary-600 text-white py-3 rounded-xl font-medium transition-colors"
+            className="w-full py-3 text-white font-semibold bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg hover:from-blue-600 hover:to-indigo-600 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
           >
             {isLoading ? (
               <>
@@ -150,7 +157,7 @@ const AuthCard: React.FC<AuthCardProps> = ({ onClose }) => {
               onClose();
               navigate('/reset-password');
             }}
-            className="text-primary-500 hover:text-primary-600 text-sm font-medium transition-colors"
+            className="text-primary-500 hover:text-primary-600 text-sm font-medium transition-colors duration-300"
           >
             نسيت كلمة المرور؟
           </button>
@@ -161,9 +168,9 @@ const AuthCard: React.FC<AuthCardProps> = ({ onClose }) => {
           <button
             onClick={() => {
               onClose();
-              navigate('/register');
+              onSwitchToRegister?.();
             }}
-            className="text-primary-500 hover:text-primary-600 font-medium transition-colors"
+            className="text-primary-500 hover:text-primary-600 font-medium transition-colors duration-300"
           >
             إنشاء حساب جديد
           </button>
@@ -173,4 +180,4 @@ const AuthCard: React.FC<AuthCardProps> = ({ onClose }) => {
   );
 };
 
-export default AuthCard;
+export default LoginForm;

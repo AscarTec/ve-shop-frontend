@@ -22,11 +22,10 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
       {sidebar}
       
       <motion.div
-        className={cn(
-          'main-content transition-all duration-300 ease-out',
-          sidebarOpen && 'lg:ml-80',
-          language === 'ar' && sidebarOpen && 'lg:ml-0 lg:mr-80'
-        )}
+ className={cn(
+  "min-h-screen flex transition-all duration-300",
+  language === 'ar' ? "flex-row-reverse" : "flex-row"
+)}
         layout
       >
         {topbar}

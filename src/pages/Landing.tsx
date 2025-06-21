@@ -1,124 +1,77 @@
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
-import { X } from 'lucide-react';
-import AuthCard from '@/components/auth/AuthCard';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAppStore } from '@/stores/useAppStore';
+import { useAuth } from '@/context/AuthContext';
+import { Target, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import AuthModal from '@/components/auth/AuthModal';
 
 const Landing = () => {
-  const { t } = useTranslation();
-  const [showLoginCard, setShowLoginCard] = useState(false);
+  const { setShowAuthModal } = useAppStore();
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Auto-redirect to dashboard if already logged in
+    if (isAuthenticated) {
+      navigate('/admin/dashboard');
+    }
+  }, [isAuthenticated, navigate]);
+
+  const handleLoginClick = () => {
+    setShowAuthModal(true);
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 flex items-center justify-center p-4">
-      <div className="max-w-4xl mx-auto text-center">
+    <>
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-blue-900 flex items-center justify-center relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=2000')`,
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-purple-900/80 to-blue-900/90" />
+        </div>
+
         {/* Main Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="space-y-8"
-        >
-          {/* Logo/Brand */}
-          <div className="space-y-4">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
-              Sports Booking
+        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          {/* App Logo and Name */}
+          <div className="flex flex-col items-center mb-12">
+            <div className="w-24 h-24 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl mb-6">
+              <Target className="w-12 h-12 text-white" />
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
+              Sports Hub
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              احجز أنشطتك الرياضية المفضلة بسهولة - السباحة، الملاعب، والمزيد
+            
+            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+              🏆 منصة الحجز الرياضي الآلية
+            </p>
+            
+            <p className="text-lg text-white/80 max-w-2xl mx-auto mb-12">
+              نظام متطور لإدارة وحجز الأنشطة الرياضية مع إشعارات تلقائية ونظام دفع آمن
             </p>
           </div>
 
-          {/* Features */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm"
-            >
-              <div className="text-primary-500 text-3xl mb-3">🏊‍♂️</div>
-              <h3 className="font-semibold text-gray-900 mb-2">السباحة</h3>
-              <p className="text-gray-600 text-sm">حجز أوقات السباحة الخاصة والمدارس</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm"
-            >
-              <div className="text-secondary-500 text-3xl mb-3">⚽</div>
-              <h3 className="font-semibold text-gray-900 mb-2">الملاعب</h3>
-              <p className="text-gray-600 text-sm">احجز ملاعب كرة القدم والتنس</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm"
-            >
-              <div className="text-accent-500 text-3xl mb-3">📅</div>
-              <h3 className="font-semibold text-gray-900 mb-2">إدارة سهلة</h3>
-              <p className="text-gray-600 text-sm">نظام حجز متطور وسهل الاستخدام</p>
-            </motion.div>
-          </div>
-
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5 }}
+          {/* Single Login Button */}
+          <Button
+            onClick={handleLoginClick}
+            size="lg"
+            className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white text-xl px-12 py-6 shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 transform hover:scale-105"
           >
-            <Button
-              onClick={() => setShowLoginCard(true)}
-              className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-            >
-              تسجيل الدخول
-            </Button>
-          </motion.div>
-        </motion.div>
+            <ArrowRight className="ml-3 h-6 w-6" />
+            دخول لوحة التحكم
+          </Button>
+        </div>
       </div>
-
-      {/* Login Card Modal */}
-      <AnimatePresence>
-        {showLoginCard && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
-              onClick={() => setShowLoginCard(false)}
-            />
-            
-            {/* Login Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: "spring", duration: 0.5 }}
-              className="fixed inset-0 flex items-center justify-center z-50 p-4"
-            >
-              <div className="relative">
-                <Button
-                  variant="ghost"
-                  onClick={() => setShowLoginCard(false)}
-                  className="absolute -top-2 -right-2 z-10 bg-white hover:bg-gray-100 rounded-full p-2 shadow-lg"
-                >
-                  <X className="w-4 h-4" />
-                </Button>
-                
-                <AuthCard onClose={() => setShowLoginCard(false)} />
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </div>
+      
+      <AuthModal />
+    </>
   );
 };
 
