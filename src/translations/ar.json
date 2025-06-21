@@ -1,73 +1,87 @@
 
 {
+  "welcome": "مرحباً",
+  "dashboard": "لوحة التحكم",
+  "bookings": "الحجوزات",
+  "activities": "الأنشطة",
+  "swimming": "السباحة",
+  "fields": "الملاعب",
+  "clients": "العملاء",
+  "users": "المستخدمين",
+  "players": "اللاعبين",
+  "coaches": "المدربين",
+  "payments": "المدفوعات",
+  "roles": "الأدوار",
+  "reports": "التقارير",
+  "settings": "الإعدادات",
   "navigation": {
-    "main": "الرئيسية",
-    "activities": "الأنشطة",
-    "management": "الإدارة",
-    "system": "النظام",
-    "dashboard": "لوحة التحكم",
-    "bookings": "الحجوزات",
-    "clients": "العملاء",
-        "users": "المستخدمون",
-    "roles": "أدوار المستخدمين",
-    "payments": "المدفوعات",
-    "profile": "الملف الشخصي",
-    "settings": "الإعدادات"
- 
+    "main": "الرئيسية"
   },
-
-
+  "menu": {
+    "home": "الرئيسية",
+    "about": "حولنا",
+    "contact": "اتصل بنا",
+    "login": "تسجيل الدخول"
+  },
+  "hero": {
+    "title": "أفضل منصة لإدارة المرافق الرياضية",
+    "subtitle": "نظام شامل لإدارة الحجوزات والعملاء والمرافق الرياضية بكفاءة عالية",
+    "cta": "ابدأ الآن",
+    "learn_more": "اعرف أكثر"
+  },
+  "stats": {
+    "facilities": "مرفق رياضي",
+    "bookings": "حجز شهرياً",
+    "users": "مستخدم نشط",
+    "satisfaction": "رضا العملاء"
+  },
+  "features": {
+    "title": "مميزات النظام",
+    "subtitle": "كل ما تحتاجه لإدارة مرفقك الرياضي بكفاءة",
+    "booking": {
+      "title": "حجز سهل وسريع",
+      "description": "نظام حجز متقدم يتيح للعملاء حجز المرافق بسهولة"
+    },
+    "management": {
+      "title": "إدارة شاملة",
+      "description": "أدوات إدارة متكاملة للمرافق والعملاء والحجوزات"
+    },
+    "analytics": {
+      "title": "تحليلات ذكية",
+      "description": "تقارير مفصلة وإحصائيات لمساعدتك في اتخاذ القرارات"
+    },
+    "support": {
+      "title": "دعم على مدار الساعة",
+      "description": "فريق دعم فني متخصص لمساعدتك في أي وقت"
+    }
+  },
+  "about": {
+    "title": "حول النظام",
+    "description": "نحن نقدم أحدث الحلول التقنية لإدارة المرافق الرياضية"
+  },
+  "contact": {
+    "title": "تواصل معنا",
+    "description": "نحن هنا لمساعدتك، تواصل معنا في أي وقت"
+  },
   "common": {
-    "login": "تسجيل الدخول",
-    "logout": "تسجيل الخروج",
-    "register": "إنشاء حساب",
-    "submit": "إرسال",
-    "cancel": "إلغاء",
+    "loading": "جاري التحميل...",
     "save": "حفظ",
-    "delete": "حذف",
+    "cancel": "إلغاء",
     "edit": "تعديل",
+    "delete": "حذف",
+    "add": "إضافة",
     "search": "بحث",
     "filter": "تصفية",
-    "loading": "جاري التحميل...",
-    "welcome": "مرحباً",
+    "export": "تصدير",
+    "import": "استيراد",
+    "yes": "نعم",
+    "no": "لا",
     "confirm": "تأكيد",
-    "reject": "رفض",
-    "pending": "قيد الانتظار",
-    "confirmed": "مؤكد",
-    "rejected": "مرفوض"
-  },
-  "auth": {
-    "loginTitle": "تسجيل الدخول إلى حسابك",
-    "registerTitle": "إنشاء حساب جديد",
-    "email": "عنوان البريد الإلكتروني",
-    "password": "كلمة المرور",
-    "confirmPassword": "تأكيد كلمة المرور",
-    "forgotPassword": "نسيت كلمة المرور؟",
-    "noAccount": "ليس لديك حساب؟",
-    "haveAccount": "لديك حساب بالفعل؟"
-  },
-  "home": {
-    "heroTitle": "احجز أنشطتك الرياضية",
-    "heroSubtitle": "اعثر على أفضل المرافق الرياضية وأحواض السباحة في منطقتك واحجزها",
-    "getStarted": "ابدأ الآن",
-    "features": {
-      "easyBooking": "حجز سهل",
-      "multipleActivities": "أنشطة متعددة",
-      "flexibleScheduling": "جدولة مرنة"
-    }
-  },
-  "bookings": {
-    "title": "حجوزاتي",
-    "status": {
-      "pending": "قيد الانتظار",
-      "confirmed": "مؤكد",
-      "cancelled": "ملغى"
-    }
-  },
-  "admin": {
-    "dashboard": "لوحة التحكم",
-    "todaysBookings": "حجوزات اليوم",
-    "revenue": "الإيرادات",
-    "pendingApprovals": "الموافقات المعلقة"
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "close": "إغلاق",
+    "submit": "إرسال",
+    "reset": "إعادة تعيين"
   }
 }

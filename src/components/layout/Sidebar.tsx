@@ -1,3 +1,4 @@
+
 // Sidebar.tsx
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
@@ -8,7 +9,7 @@ import { useLoadingStore } from '@/stores/useLoadingStore';
 import { cn } from '@/lib/utils';
 import {
   LayoutDashboard, Calendar, Activity, Users, Shield, BarChart3,
-  Settings, X, Waves, MapPin, CreditCard
+  Settings, X, Waves, MapPin, CreditCard, User, UserCheck
 } from 'lucide-react';
 import AppLogo from '@/components/ui/AppLogo';
 
@@ -29,6 +30,8 @@ const Sidebar = () => {
     },
     { icon: Users, label: t('clients'), href: '/clients' },
     { icon: Users, label: t('users'), href: '/users' },
+    { icon: User, label: 'اللاعبين', href: '/players' },
+    { icon: UserCheck, label: 'المدربين', href: '/coaches' },
     { icon: CreditCard, label: t('payments'), href: '/payments' },
     { icon: Shield, label: t('roles'), href: '/roles' },
     { icon: BarChart3, label: t('reports'), href: '/reports' },

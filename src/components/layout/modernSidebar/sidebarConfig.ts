@@ -2,34 +2,34 @@
 import {
   LayoutDashboard,
   Calendar,
-  Activity,
   Users,
   Shield,
-  Settings,
-  MapPin,
-  Waves,
-  UserCheck,
-  CreditCard,
   BarChart3,
+  Settings,
   Building,
-  ClipboardList
+  Waves,
+  MapPin,
+  CreditCard,
+  User,
+  UserCheck
 } from 'lucide-react';
-import { SidebarConfig } from './types';
 
-export const sidebarConfig: SidebarConfig = {
+export const sidebarConfig = {
   groups: [
     {
       label: 'navigation.main',
       items: [
         {
           href: '/dashboard',
-          label: 'navigation.dashboard',
+          label: 'لوحة التحكم',
           icon: LayoutDashboard,
+          badge: null
         },
         {
           href: '/admin/dashboard',
           label: 'لوحة التحكم الرئيسية',
           icon: LayoutDashboard,
+          badge: 'admin'
         }
       ]
     },
@@ -40,16 +40,19 @@ export const sidebarConfig: SidebarConfig = {
           href: '/admin/facilities',
           label: 'إدارة المرافق',
           icon: Building,
+          badge: 'admin'
         },
         {
           href: '/activities/swimming',
           label: 'أنشطة السباحة',
           icon: Waves,
+          badge: null
         },
         {
           href: '/activities/fields',
           label: 'أنشطة الملاعب',
           icon: MapPin,
+          badge: null
         }
       ]
     },
@@ -57,54 +60,74 @@ export const sidebarConfig: SidebarConfig = {
       label: 'إدارة الحجوزات',
       items: [
         {
-          href: '/admin/bookings',
-          label: 'إدارة الحجوزات',
-          icon: ClipboardList,
+          href: '/bookings',
+          label: 'الحجوزات',
+          icon: Calendar,
+          badge: null
         },
         {
-          href: '/bookings',
-          label: 'navigation.bookings',
+          href: '/admin/bookings',
+          label: 'إدارة الحجوزات',
           icon: Calendar,
-        }
-      ]
-    },
-    {
-      label: 'navigation.management',
-      items: [
-        {
-          href: '/clients',
-          label: 'navigation.clients',
-          icon: Users,
+          badge: 'admin'
         },
         {
           href: '/payments',
-          label: 'navigation.payments',
+          label: 'المدفوعات',
           icon: CreditCard,
+          badge: null
         }
       ]
     },
     {
-      label: 'navigation.system',
+      label: 'إدارة المستخدمين',
       items: [
         {
-          href: '/users',
-          label: 'navigation.users',
-          icon: UserCheck,
+          href: '/clients',
+          label: 'العملاء',
+          icon: Users,
+          badge: null
         },
         {
+          href: '/users',
+          label: 'المستخدمين',
+          icon: User,
+          badge: null
+        },
+        {
+          href: '/players',
+          label: 'اللاعبين',
+          icon: User,
+          badge: 'new'
+        },
+        {
+          href: '/coaches',
+          label: 'المدربين',
+          icon: UserCheck,
+          badge: 'new'
+        }
+      ]
+    },
+    {
+      label: 'الإدارة والإعدادات',
+      items: [
+        {
           href: '/roles',
-          label: 'navigation.roles',
+          label: 'الأدوار والصلاحيات',
           icon: Shield,
+          badge: 'admin'
         },
         {
           href: '/reports',
           label: 'التقارير',
           icon: BarChart3,
+          badge: null
         },
         {
           href: '/settings',
-          label: 'navigation.settings',
+          label: 'الإعدادات',
           icon: Settings,
+          badge: null
         }
       ]
     }

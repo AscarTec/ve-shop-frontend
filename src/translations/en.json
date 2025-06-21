@@ -1,70 +1,87 @@
 
-{ 
+{
+  "welcome": "Welcome",
+  "dashboard": "Dashboard",
+  "bookings": "Bookings",
+  "activities": "Activities",
+  "swimming": "Swimming",
+  "fields": "Fields",
+  "clients": "Clients",
+  "users": "Users",
+  "players": "Players",
+  "coaches": "Coaches",
+  "payments": "Payments",
+  "roles": "Roles",
+  "reports": "Reports",
+  "settings": "Settings",
   "navigation": {
-    "main": "Main",
-    "activities": "Activities",
-    "management": "Management",
-    "system": "System",
-    "dashboard": "Dashboard",
-    "bookings": "Bookings",
-    "clients": "Clients", 
-      "users": "Users",
-      "roles": "User Roles",
-      "payments": "Payments",
-      "profile": "Profile",
-      "settings": "Settings"
+    "main": "Main"
+  },
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login"
+  },
+  "hero": {
+    "title": "Best Platform for Sports Facility Management",
+    "subtitle": "Comprehensive system for efficient management of bookings, clients, and sports facilities",
+    "cta": "Get Started",
+    "learn_more": "Learn More"
+  },
+  "stats": {
+    "facilities": "Sports Facilities",
+    "bookings": "Monthly Bookings",
+    "users": "Active Users",
+    "satisfaction": "Customer Satisfaction"
+  },
+  "features": {
+    "title": "System Features",
+    "subtitle": "Everything you need to efficiently manage your sports facility",
+    "booking": {
+      "title": "Easy and Fast Booking",
+      "description": "Advanced booking system that allows customers to book facilities easily"
     },
+    "management": {
+      "title": "Comprehensive Management",
+      "description": "Integrated management tools for facilities, clients, and bookings"
+    },
+    "analytics": {
+      "title": "Smart Analytics",
+      "description": "Detailed reports and statistics to help you make decisions"
+    },
+    "support": {
+      "title": "24/7 Support",
+      "description": "Specialized technical support team to help you anytime"
+    }
+  },
+  "about": {
+    "title": "About the System",
+    "description": "We provide the latest technical solutions for sports facility management"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "We are here to help you, contact us anytime"
+  },
   "common": {
-    "login": "Login",
-    "logout": "Logout",
-    "register": "Register",
-    "submit": "Submit",
-    "cancel": "Cancel",
+    "loading": "Loading...",
     "save": "Save",
-    "delete": "Delete",
+    "cancel": "Cancel",
     "edit": "Edit",
+    "delete": "Delete",
+    "add": "Add",
     "search": "Search",
     "filter": "Filter",
-    "loading": "Loading...",
-    "welcome": "Welcome",
+    "export": "Export",
+    "import": "Import",
+    "yes": "Yes",
+    "no": "No",
     "confirm": "Confirm",
-    "reject": "Reject",
-    "pending": "Pending",
-    "confirmed": "Confirmed",
-    "rejected": "Rejected"
-  },
-  "auth": {
-    "loginTitle": "Sign In to Your Account",
-    "registerTitle": "Create New Account",
-    "email": "Email Address",
-    "password": "Password",
-    "confirmPassword": "Confirm Password",
-    "forgotPassword": "Forgot Password?",
-    "noAccount": "Don't have an account?",
-    "haveAccount": "Already have an account?"
-  },
-  "home": {
-    "heroTitle": "Book Your Sports Activities",
-    "heroSubtitle": "Find and book the best sports facilities and swimming pools in your area",
-    "getStarted": "Get Started",
-    "features": {
-      "easyBooking": "Easy Booking",
-      "multipleActivities": "Multiple Activities",
-      "flexibleScheduling": "Flexible Scheduling"
-    }
-  },
-  "bookings": {
-    "title": "My Bookings",
-    "status": {
-      "pending": "Pending",
-      "confirmed": "Confirmed",
-      "cancelled": "Cancelled"
-    }
-  },
-  "admin": {
-    "dashboard": "Admin Dashboard",
-    "todaysBookings": "Today's Bookings",
-    "revenue": "Revenue",
-    "pendingApprovals": "Pending Approvals"
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "submit": "Submit",
+    "reset": "Reset"
   }
 }

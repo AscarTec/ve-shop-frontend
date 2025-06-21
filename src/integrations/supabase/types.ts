@@ -9,6 +9,130 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      coach_assignments: {
+        Row: {
+          coach_id: string | null
+          created_at: string | null
+          end_date: string | null
+          id: string
+          player_id: string | null
+          start_date: string
+          training_type: string
+          updated_at: string | null
+        }
+        Insert: {
+          coach_id?: string | null
+          created_at?: string | null
+          end_date?: string | null
+          id?: string
+          player_id?: string | null
+          start_date: string
+          training_type: string
+          updated_at?: string | null
+        }
+        Update: {
+          coach_id?: string | null
+          created_at?: string | null
+          end_date?: string | null
+          id?: string
+          player_id?: string | null
+          start_date?: string
+          training_type?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "coach_assignments_coach_id_fkey"
+            columns: ["coach_id"]
+            isOneToOne: false
+            referencedRelation: "coaches"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "coach_assignments_player_id_fkey"
+            columns: ["player_id"]
+            isOneToOne: false
+            referencedRelation: "players"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      coaches: {
+        Row: {
+          certification: string | null
+          created_at: string | null
+          experience_years: number | null
+          id: string
+          specialty: string
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          certification?: string | null
+          created_at?: string | null
+          experience_years?: number | null
+          id?: string
+          specialty: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          certification?: string | null
+          created_at?: string | null
+          experience_years?: number | null
+          id?: string
+          specialty?: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "coaches_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      players: {
+        Row: {
+          created_at: string | null
+          id: string
+          position: string | null
+          rating: number | null
+          team: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          position?: string | null
+          rating?: number | null
+          team?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          position?: string | null
+          rating?: number | null
+          team?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "players_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           created_at: string | null
