@@ -20,52 +20,52 @@ export interface CreateClientData {
 
 export const clientsService = {
   async getClients(): Promise<Client[]> {
-    const { data, error } = await supabase
-      .from('clients' as any)
+    const { data, error } = await (supabase as any)
+      .from('clients')
       .select('*')
       .order('created_at', { ascending: false });
     
     if (error) throw error;
-    return data || [];
+    return (data || []) as Client[];
   },
 
   async getClientById(id: string): Promise<Client | null> {
-    const { data, error } = await supabase
-      .from('clients' as any)
+    const { data, error } = await (supabase as any)
+      .from('clients')
       .select('*')
       .eq('id', id)
       .single();
     
     if (error) throw error;
-    return data;
+    return data as Client;
   },
 
   async createClient(client: CreateClientData): Promise<Client> {
-    const { data, error } = await supabase
-      .from('clients' as any)
+    const { data, error } = await (supabase as any)
+      .from('clients')
       .insert(client)
       .select()
       .single();
     
     if (error) throw error;
-    return data;
+    return data as Client;
   },
 
   async updateClient(id: string, updates: Partial<Client>): Promise<Client> {
-    const { data, error } = await supabase
-      .from('clients' as any)
+    const { data, error } = await (supabase as any)
+      .from('clients')
       .update(updates)
       .eq('id', id)
       .select()
       .single();
     
     if (error) throw error;
-    return data;
+    return data as Client;
   },
 
   async deleteClient(id: string): Promise<void> {
-    const { error } = await supabase
-      .from('clients' as any)
+    const { error } = await (supabase as any)
+      .from('clients')
       .delete()
       .eq('id', id);
     
@@ -73,13 +73,13 @@ export const clientsService = {
   },
 
   async searchClients(query: string): Promise<Client[]> {
-    const { data, error } = await supabase
-      .from('clients' as any)
+    const { data, error } = await (supabase as any)
+      .from('clients')
       .select('*')
       .or(`full_name.ilike.%${query}%,phone_number.ilike.%${query}%,national_id.ilike.%${query}%`)
       .order('created_at', { ascending: false });
     
     if (error) throw error;
-    return data || [];
+    return (data || []) as Client[];
   }
 };

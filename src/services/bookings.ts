@@ -41,8 +41,8 @@ export interface CreateBookingData {
 
 export const bookingsService = {
   async getBookings(): Promise<Booking[]> {
-    const { data, error } = await supabase
-      .from('bookings' as any)
+    const { data, error } = await (supabase as any)
+      .from('bookings')
       .select(`
         *,
         clients (
@@ -53,12 +53,12 @@ export const bookingsService = {
       .order('created_at', { ascending: false });
     
     if (error) throw error;
-    return data || [];
+    return (data || []) as Booking[];
   },
 
   async getBookingById(id: string): Promise<Booking | null> {
-    const { data, error } = await supabase
-      .from('bookings' as any)
+    const { data, error } = await (supabase as any)
+      .from('bookings')
       .select(`
         *,
         clients (
@@ -70,15 +70,15 @@ export const bookingsService = {
       .single();
     
     if (error) throw error;
-    return data;
+    return data as Booking;
   },
 
   async createBooking(booking: CreateBookingData): Promise<Booking> {
     // Generate booking ID
     const bookingId = `BK-${Date.now().toString().slice(-8)}`;
     
-    const { data, error } = await supabase
-      .from('bookings' as any)
+    const { data, error } = await (supabase as any)
+      .from('bookings')
       .insert({
         id: bookingId,
         ...booking
@@ -93,12 +93,12 @@ export const bookingsService = {
       .single();
     
     if (error) throw error;
-    return data;
+    return data as Booking;
   },
 
   async updateBooking(id: string, updates: Partial<Booking>): Promise<Booking> {
-    const { data, error } = await supabase
-      .from('bookings' as any)
+    const { data, error } = await (supabase as any)
+      .from('bookings')
       .update(updates)
       .eq('id', id)
       .select(`
@@ -111,7 +111,7 @@ export const bookingsService = {
       .single();
     
     if (error) throw error;
-    return data;
+    return data as Booking;
   },
 
   async updateBookingStatus(id: string, status: Booking['status']): Promise<Booking> {
@@ -119,8 +119,8 @@ export const bookingsService = {
   },
 
   async deleteBooking(id: string): Promise<void> {
-    const { error } = await supabase
-      .from('bookings' as any)
+    const { error } = await (supabase as any)
+      .from('bookings')
       .delete()
       .eq('id', id);
     
@@ -128,8 +128,8 @@ export const bookingsService = {
   },
 
   async getBookingsByStatus(status: Booking['status']): Promise<Booking[]> {
-    const { data, error } = await supabase
-      .from('bookings' as any)
+    const { data, error } = await (supabase as any)
+      .from('bookings')
       .select(`
         *,
         clients (
@@ -141,12 +141,12 @@ export const bookingsService = {
       .order('created_at', { ascending: false });
     
     if (error) throw error;
-    return data || [];
+    return (data || []) as Booking[];
   },
 
   async getBookingsByDateRange(startDate: string, endDate: string): Promise<Booking[]> {
-    const { data, error } = await supabase
-      .from('bookings' as any)
+    const { data, error } = await (supabase as any)
+      .from('bookings')
       .select(`
         *,
         clients (
@@ -159,6 +159,6 @@ export const bookingsService = {
       .order('start_time', { ascending: true });
     
     if (error) throw error;
-    return data || [];
+    return (data || []) as Booking[];
   }
 };

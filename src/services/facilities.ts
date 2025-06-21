@@ -28,41 +28,41 @@ export interface FieldActivity {
 export const facilitiesService = {
   // Swimming Activities CRUD
   async getSwimmingActivities(): Promise<SwimmingActivity[]> {
-    const { data, error } = await supabase
-      .from('swimming_activities' as any)
+    const { data, error } = await (supabase as any)
+      .from('swimming_activities')
       .select('*')
       .order('created_at', { ascending: false });
     
     if (error) throw error;
-    return data || [];
+    return (data || []) as SwimmingActivity[];
   },
 
   async createSwimmingActivity(activity: Omit<SwimmingActivity, 'id' | 'created_at' | 'updated_at'>): Promise<SwimmingActivity> {
-    const { data, error } = await supabase
-      .from('swimming_activities' as any)
+    const { data, error } = await (supabase as any)
+      .from('swimming_activities')
       .insert(activity)
       .select()
       .single();
     
     if (error) throw error;
-    return data;
+    return data as SwimmingActivity;
   },
 
   async updateSwimmingActivity(id: number, updates: Partial<SwimmingActivity>): Promise<SwimmingActivity> {
-    const { data, error } = await supabase
-      .from('swimming_activities' as any)
+    const { data, error } = await (supabase as any)
+      .from('swimming_activities')
       .update(updates)
       .eq('id', id)
       .select()
       .single();
     
     if (error) throw error;
-    return data;
+    return data as SwimmingActivity;
   },
 
   async deleteSwimmingActivity(id: number): Promise<void> {
-    const { error } = await supabase
-      .from('swimming_activities' as any)
+    const { error } = await (supabase as any)
+      .from('swimming_activities')
       .delete()
       .eq('id', id);
     
@@ -71,41 +71,41 @@ export const facilitiesService = {
 
   // Field Activities CRUD
   async getFieldActivities(): Promise<FieldActivity[]> {
-    const { data, error } = await supabase
-      .from('field_activities' as any)
+    const { data, error } = await (supabase as any)
+      .from('field_activities')
       .select('*')
       .order('created_at', { ascending: false });
     
     if (error) throw error;
-    return data || [];
+    return (data || []) as FieldActivity[];
   },
 
   async createFieldActivity(activity: Omit<FieldActivity, 'id' | 'created_at' | 'updated_at'>): Promise<FieldActivity> {
-    const { data, error } = await supabase
-      .from('field_activities' as any)
+    const { data, error } = await (supabase as any)
+      .from('field_activities')
       .insert(activity)
       .select()
       .single();
     
     if (error) throw error;
-    return data;
+    return data as FieldActivity;
   },
 
   async updateFieldActivity(id: number, updates: Partial<FieldActivity>): Promise<FieldActivity> {
-    const { data, error } = await supabase
-      .from('field_activities' as any)
+    const { data, error } = await (supabase as any)
+      .from('field_activities')
       .update(updates)
       .eq('id', id)
       .select()
       .single();
     
     if (error) throw error;
-    return data;
+    return data as FieldActivity;
   },
 
   async deleteFieldActivity(id: number): Promise<void> {
-    const { error } = await supabase
-      .from('field_activities' as any)
+    const { error } = await (supabase as any)
+      .from('field_activities')
       .delete()
       .eq('id', id);
     
