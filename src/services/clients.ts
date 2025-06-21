@@ -21,7 +21,7 @@ export interface CreateClientData {
 export const clientsService = {
   async getClients(): Promise<Client[]> {
     const { data, error } = await supabase
-      .from('clients')
+      .from('clients' as any)
       .select('*')
       .order('created_at', { ascending: false });
     
@@ -31,7 +31,7 @@ export const clientsService = {
 
   async getClientById(id: string): Promise<Client | null> {
     const { data, error } = await supabase
-      .from('clients')
+      .from('clients' as any)
       .select('*')
       .eq('id', id)
       .single();
@@ -42,7 +42,7 @@ export const clientsService = {
 
   async createClient(client: CreateClientData): Promise<Client> {
     const { data, error } = await supabase
-      .from('clients')
+      .from('clients' as any)
       .insert(client)
       .select()
       .single();
@@ -53,7 +53,7 @@ export const clientsService = {
 
   async updateClient(id: string, updates: Partial<Client>): Promise<Client> {
     const { data, error } = await supabase
-      .from('clients')
+      .from('clients' as any)
       .update(updates)
       .eq('id', id)
       .select()
@@ -65,7 +65,7 @@ export const clientsService = {
 
   async deleteClient(id: string): Promise<void> {
     const { error } = await supabase
-      .from('clients')
+      .from('clients' as any)
       .delete()
       .eq('id', id);
     
@@ -74,7 +74,7 @@ export const clientsService = {
 
   async searchClients(query: string): Promise<Client[]> {
     const { data, error } = await supabase
-      .from('clients')
+      .from('clients' as any)
       .select('*')
       .or(`full_name.ilike.%${query}%,phone_number.ilike.%${query}%,national_id.ilike.%${query}%`)
       .order('created_at', { ascending: false });

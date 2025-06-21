@@ -42,7 +42,7 @@ export interface CreateBookingData {
 export const bookingsService = {
   async getBookings(): Promise<Booking[]> {
     const { data, error } = await supabase
-      .from('bookings')
+      .from('bookings' as any)
       .select(`
         *,
         clients (
@@ -58,7 +58,7 @@ export const bookingsService = {
 
   async getBookingById(id: string): Promise<Booking | null> {
     const { data, error } = await supabase
-      .from('bookings')
+      .from('bookings' as any)
       .select(`
         *,
         clients (
@@ -78,7 +78,7 @@ export const bookingsService = {
     const bookingId = `BK-${Date.now().toString().slice(-8)}`;
     
     const { data, error } = await supabase
-      .from('bookings')
+      .from('bookings' as any)
       .insert({
         id: bookingId,
         ...booking
@@ -98,7 +98,7 @@ export const bookingsService = {
 
   async updateBooking(id: string, updates: Partial<Booking>): Promise<Booking> {
     const { data, error } = await supabase
-      .from('bookings')
+      .from('bookings' as any)
       .update(updates)
       .eq('id', id)
       .select(`
@@ -120,7 +120,7 @@ export const bookingsService = {
 
   async deleteBooking(id: string): Promise<void> {
     const { error } = await supabase
-      .from('bookings')
+      .from('bookings' as any)
       .delete()
       .eq('id', id);
     
@@ -129,7 +129,7 @@ export const bookingsService = {
 
   async getBookingsByStatus(status: Booking['status']): Promise<Booking[]> {
     const { data, error } = await supabase
-      .from('bookings')
+      .from('bookings' as any)
       .select(`
         *,
         clients (
@@ -146,7 +146,7 @@ export const bookingsService = {
 
   async getBookingsByDateRange(startDate: string, endDate: string): Promise<Booking[]> {
     const { data, error } = await supabase
-      .from('bookings')
+      .from('bookings' as any)
       .select(`
         *,
         clients (

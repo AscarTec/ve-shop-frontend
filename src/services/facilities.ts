@@ -29,7 +29,7 @@ export const facilitiesService = {
   // Swimming Activities CRUD
   async getSwimmingActivities(): Promise<SwimmingActivity[]> {
     const { data, error } = await supabase
-      .from('swimming_activities')
+      .from('swimming_activities' as any)
       .select('*')
       .order('created_at', { ascending: false });
     
@@ -39,7 +39,7 @@ export const facilitiesService = {
 
   async createSwimmingActivity(activity: Omit<SwimmingActivity, 'id' | 'created_at' | 'updated_at'>): Promise<SwimmingActivity> {
     const { data, error } = await supabase
-      .from('swimming_activities')
+      .from('swimming_activities' as any)
       .insert(activity)
       .select()
       .single();
@@ -50,7 +50,7 @@ export const facilitiesService = {
 
   async updateSwimmingActivity(id: number, updates: Partial<SwimmingActivity>): Promise<SwimmingActivity> {
     const { data, error } = await supabase
-      .from('swimming_activities')
+      .from('swimming_activities' as any)
       .update(updates)
       .eq('id', id)
       .select()
@@ -62,7 +62,7 @@ export const facilitiesService = {
 
   async deleteSwimmingActivity(id: number): Promise<void> {
     const { error } = await supabase
-      .from('swimming_activities')
+      .from('swimming_activities' as any)
       .delete()
       .eq('id', id);
     
@@ -72,7 +72,7 @@ export const facilitiesService = {
   // Field Activities CRUD
   async getFieldActivities(): Promise<FieldActivity[]> {
     const { data, error } = await supabase
-      .from('field_activities')
+      .from('field_activities' as any)
       .select('*')
       .order('created_at', { ascending: false });
     
@@ -82,7 +82,7 @@ export const facilitiesService = {
 
   async createFieldActivity(activity: Omit<FieldActivity, 'id' | 'created_at' | 'updated_at'>): Promise<FieldActivity> {
     const { data, error } = await supabase
-      .from('field_activities')
+      .from('field_activities' as any)
       .insert(activity)
       .select()
       .single();
@@ -93,7 +93,7 @@ export const facilitiesService = {
 
   async updateFieldActivity(id: number, updates: Partial<FieldActivity>): Promise<FieldActivity> {
     const { data, error } = await supabase
-      .from('field_activities')
+      .from('field_activities' as any)
       .update(updates)
       .eq('id', id)
       .select()
@@ -105,7 +105,7 @@ export const facilitiesService = {
 
   async deleteFieldActivity(id: number): Promise<void> {
     const { error } = await supabase
-      .from('field_activities')
+      .from('field_activities' as any)
       .delete()
       .eq('id', id);
     
