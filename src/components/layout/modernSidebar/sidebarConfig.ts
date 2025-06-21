@@ -2,87 +2,109 @@
 import {
   LayoutDashboard,
   Calendar,
+  Activity,
   Users,
+  Shield,
+  Settings,
+  MapPin,
   Waves,
-  Target,
+  UserCheck,
   CreditCard,
   BarChart3,
-  Settings,
-  Shield,
-  UserCheck
+  Building,
+  ClipboardList
 } from 'lucide-react';
 import { SidebarConfig } from './types';
 
 export const sidebarConfig: SidebarConfig = {
   groups: [
     {
-      label: 'main',
+      label: 'navigation.main',
       items: [
         {
-          href: '/',
-          label: 'dashboard',
-          icon: LayoutDashboard
+          href: '/dashboard',
+          label: 'navigation.dashboard',
+          icon: LayoutDashboard,
         },
         {
-          href: '/bookings',
-          label: 'bookings',
-          icon: Calendar,
-          badge: '12'
+          href: '/admin/dashboard',
+          label: 'لوحة التحكم الرئيسية',
+          icon: LayoutDashboard,
         }
       ]
     },
     {
-      label: 'activities',
+      label: 'إدارة المرافق',
       items: [
         {
+          href: '/admin/facilities',
+          label: 'إدارة المرافق',
+          icon: Building,
+        },
+        {
           href: '/activities/swimming',
-          label: 'swimming',
-          icon: Waves
+          label: 'أنشطة السباحة',
+          icon: Waves,
         },
         {
           href: '/activities/fields',
-          label: 'fields',
-          icon: Target
+          label: 'أنشطة الملاعب',
+          icon: MapPin,
         }
       ]
     },
     {
-      label: 'management',
+      label: 'إدارة الحجوزات',
+      items: [
+        {
+          href: '/admin/bookings',
+          label: 'إدارة الحجوزات',
+          icon: ClipboardList,
+        },
+        {
+          href: '/bookings',
+          label: 'navigation.bookings',
+          icon: Calendar,
+        }
+      ]
+    },
+    {
+      label: 'navigation.management',
       items: [
         {
           href: '/clients',
-          label: 'clients',
-          icon: Users
+          label: 'navigation.clients',
+          icon: Users,
         },
         {
           href: '/payments',
-          label: 'payments',
-          icon: CreditCard
-        },
-        {
-          href: '/reports',
-          label: 'reports',
-          icon: BarChart3
+          label: 'navigation.payments',
+          icon: CreditCard,
         }
       ]
     },
     {
-      label: 'system',
+      label: 'navigation.system',
       items: [
         {
           href: '/users',
-          label: 'users',
-          icon: UserCheck
+          label: 'navigation.users',
+          icon: UserCheck,
         },
         {
           href: '/roles',
-          label: 'roles',
-          icon: Shield
+          label: 'navigation.roles',
+          icon: Shield,
+        },
+        {
+          href: '/reports',
+          label: 'التقارير',
+          icon: BarChart3,
         },
         {
           href: '/settings',
-          label: 'settings',
-          icon: Settings
+          label: 'navigation.settings',
+          icon: Settings,
         }
       ]
     }

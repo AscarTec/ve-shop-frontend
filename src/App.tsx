@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,6 +13,8 @@ import Landing from "./pages/Landing";
 import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/Dashboard"; 
 import AdminDashboard from "./pages/admin/Dashboard";
+import FacilitiesPage from "./pages/admin/FacilitiesPage";
+import BookingsPage from "./pages/admin/BookingsPage";
 import Users from "./pages/Users";
 import Roles from "./pages/Roles";
 import Settings from "./pages/Settings";
@@ -45,6 +48,18 @@ const App = () => (
               <Route path="/admin/dashboard" element={
                 <AuthLayout>
                   <Layout><AdminDashboard /></Layout>
+                </AuthLayout>
+              } />
+              
+              <Route path="/admin/facilities" element={
+                <AuthLayout requiredRole="admin">
+                  <Layout><FacilitiesPage /></Layout>
+                </AuthLayout>
+              } />
+              
+              <Route path="/admin/bookings" element={
+                <AuthLayout requiredRole="admin">
+                  <Layout><BookingsPage /></Layout>
                 </AuthLayout>
               } />
               
@@ -105,13 +120,13 @@ const App = () => (
               
               <Route path="/admin/bookings/pending" element={
                 <AuthLayout requiredRole="admin">
-                  <Layout><Bookings /></Layout>
+                  <Layout><BookingsPage /></Layout>
                 </AuthLayout>
               } />
               
               <Route path="/admin/bookings/confirmed" element={
                 <AuthLayout requiredRole="admin">
-                  <Layout><Bookings /></Layout>
+                  <Layout><BookingsPage /></Layout>
                 </AuthLayout>
               } />
               
