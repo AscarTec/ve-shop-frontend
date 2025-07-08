@@ -6,11 +6,13 @@ import enCommon from '../locales/en/common.json';
 import enProduct from '../locales/en/product.json';
 import enCart from '../locales/en/cart.json';
 import enAuth from '../locales/en/auth.json';
+import enUi from '../locales/en/ui.json';
 
 import arCommon from '../locales/ar/common.json';
 import arProduct from '../locales/ar/product.json';
 import arCart from '../locales/ar/cart.json';
 import arAuth from '../locales/ar/auth.json';
+import arUi from '../locales/ar/ui.json';
 
 const resources = {
   en: {
@@ -18,12 +20,14 @@ const resources = {
     product: enProduct,
     cart: enCart,
     auth: enAuth,
+    ui: enUi,
   },
   ar: {
     common: arCommon,
     product: arProduct,
     cart: arCart,
     auth: arAuth,
+    ui: arUi,
   },
 };
 
@@ -40,7 +44,7 @@ i18n
     
     // Load multiple namespaces
     defaultNS: 'common',
-    ns: ['common', 'product', 'cart', 'auth'],
+    ns: ['common', 'product', 'cart', 'auth', 'ui'],
     
     // React-specific options
     react: {

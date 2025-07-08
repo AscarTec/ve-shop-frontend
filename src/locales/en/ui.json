@@ -1,0 +1,41 @@
+{
+  "notifications": {
+    "title": "Notifications",
+    "mark_all_read": "Mark all as read",
+    "no_notifications": "No new notifications",
+    "order_status_updated": "Order status updated",
+    "order_shipped": "Your order has been shipped",
+    "order_delivered": "Your order has been delivered",
+    "new_offer": "New offer available",
+    "account_updated": "Account information updated"
+  },
+  "toast": {
+    "success": "Success!",
+    "error": "Error!",
+    "warning": "Warning!",
+    "info": "Info",
+    "item_added_to_cart": "Item added to cart",
+    "item_removed_from_cart": "Item removed from cart",
+    "item_added_to_wishlist": "Item added to wishlist",
+    "item_removed_from_wishlist": "Item removed from wishlist",
+    "profile_updated": "Profile updated successfully",
+    "password_updated": "Password updated successfully",
+    "address_added": "Address added successfully",
+    "address_updated": "Address updated successfully",
+    "address_removed": "Address removed successfully"
+  },
+  "loading": {
+    "signing_in": "Signing in...",
+    "creating_account": "Creating account...",
+    "updating_profile": "Updating profile...",
+    "loading": "Loading...",
+    "please_wait": "Please wait..."
+  },
+  "empty_states": {
+    "no_orders": "No orders yet",
+    "no_addresses": "No addresses saved",
+    "empty_wishlist": "Your wishlist is empty",
+    "empty_cart": "Your cart is empty",
+    "no_results": "No results found"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "notifications": {
+    "title": "الإشعارات",
+    "mark_all_read": "تحديد الكل كمقروء",
+    "no_notifications": "لا توجد إشعارات جديدة",
+    "order_status_updated": "تم تحديث حالة الطلب",
+    "order_shipped": "تم شحن طلبك",
+    "order_delivered": "تم تسليم طلبك",
+    "new_offer": "عرض جديد متاح",
+    "account_updated": "تم تحديث معلومات الحساب"
+  },
+  "toast": {
+    "success": "تم بنجاح!",
+    "error": "خطأ!",
+    "warning": "تحذير!",
+    "info": "معلومة",
+    "item_added_to_cart": "تم إضافة المنتج للسلة",
+    "item_removed_from_cart": "تم إزالة المنتج من السلة",
+    "item_added_to_wishlist": "تم إضافة المنتج للمفضلة",
+    "item_removed_from_wishlist": "تم إزالة المنتج من المفضلة",
+    "profile_updated": "تم تحديث الملف الشخصي بنجاح",
+    "password_updated": "تم تحديث كلمة المرور بنجاح",
+    "address_added": "تم إضافة العنوان بنجاح",
+    "address_updated": "تم تحديث العنوان بنجاح",
+    "address_removed": "تم حذف العنوان بنجاح"
+  },
+  "loading": {
+    "signing_in": "جارٍ تسجيل الدخول...",
+    "creating_account": "جارٍ إنشاء الحساب...",
+    "updating_profile": "جارٍ تحديث الملف الشخصي...",
+    "loading": "جارٍ التحميل...",
+    "please_wait": "يرجى الانتظار..."
+  },
+  "empty_states": {
+    "no_orders": "لا توجد طلبات بعد",
+    "no_addresses": "لا توجد عناوين محفوظة",
+    "empty_wishlist": "قائمة المفضلة فارغة",
+    "empty_cart": "سلة التسوق فارغة",
+    "no_results": "لم يتم العثور على نتائج"
+  }
+}
