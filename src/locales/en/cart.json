@@ -1,0 +1,48 @@
+{
+  "cart": {
+    "my_cart": "My Cart",
+    "empty_cart": "Your cart is empty",
+    "continue_shopping": "Continue Shopping",
+    "remove_item": "Remove Item",
+    "move_to_wishlist": "Move to Wishlist",
+    "quantity": "Quantity",
+    "price": "Price",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "tax": "Tax",
+    "discount": "Discount",
+    "coupon_code": "Coupon Code",
+    "apply_coupon": "Apply Coupon",
+    "proceed_to_checkout": "Proceed to Checkout",
+    "update_cart": "Update Cart",
+    "estimated_total": "Estimated Total"
+  },
+  "checkout": {
+    "checkout": "Checkout",
+    "shipping_address": "Shipping Address",
+    "billing_address": "Billing Address",
+    "same_as_shipping": "Same as shipping address",
+    "payment_method": "Payment Method",
+    "order_summary": "Order Summary",
+    "place_order": "Place Order",
+    "order_total": "Order Total",
+    "delivery_date": "Estimated Delivery",
+    "guest_checkout": "Guest Checkout",
+    "create_account": "Create Account for faster checkout"
+  },
+  "order": {
+    "order_confirmed": "Order Confirmed",
+    "order_number": "Order Number",
+    "thank_you": "Thank you for your order!",
+    "order_details": "Order Details",
+    "tracking_info": "Tracking Information",
+    "estimated_delivery": "Estimated Delivery",
+    "order_status": "Order Status",
+    "pending": "Pending",
+    "processing": "Processing",
+    "shipped": "Shipped",
+    "delivered": "Delivered",
+    "cancelled": "Cancelled"
+  }
+}

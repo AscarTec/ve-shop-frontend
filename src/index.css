@@ -1,123 +1,161 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* CSS Custom Properties for theming */
+/* Ve-Shop E-commerce Design System 
+Modern marketplace colors optimized for trust, conversion, and user experience.
+All colors MUST be HSL.
+*/
+
 @layer base {
   :root {
-    /* Unified color palette */
-    --color-primary: 224.3 76.3% 48%;
-    --color-accent: 160.1 84% 39.4%;
-    --color-bg: 0 0% 100%;
-    --color-surface: 0 0% 98%;
-    --color-text: 215 28% 17%;
-    --color-muted: 215.4 16.3% 46.9%;
+    /* Base colors */
+    --background: 0 0% 100%;
+    --foreground: 225 15% 15%;
 
-    --primary-color: var(--color-primary);
-    --primary-color-foreground: 0 0% 100%;
-    --secondary-color: 271.5 81.3% 56%;
-    --secondary-color-foreground: 0 0% 100%;
-    --accent-color: var(--color-accent);
-    --accent-foreground-color: 0 0% 100%;
-    --background-color: var(--color-bg);
-    --background-color-desktop: var(--color-bg);
-    --text-color: var(--color-text);
-
-    /* Existing tokens mapped to the new palette */
-    --background: var(--background-color);
-    --foreground: var(--text-color);
-
+    /* Card and surface colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 225 15% 15%;
+    --card-hover: 220 14% 96%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 225 15% 15%;
 
-    --primary: var(--primary-color);
-    --primary-foreground: var(--primary-color-foreground);
+    /* E-commerce primary - Trust blue */
+    --primary: 214 84% 56%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 214 84% 46%;
+    --primary-light: 214 100% 97%;
 
-    --secondary: var(--secondary-color);
-    --secondary-foreground: var(--secondary-color-foreground);
+    /* E-commerce secondary - Action orange */
+    --secondary: 25 95% 53%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 25 95% 43%;
+    --secondary-light: 25 100% 97%;
 
-    --muted: var(--color-muted);
-    --muted-foreground: var(--color-text);
+    /* Neutral grays */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8.9% 46.1%;
 
-    --accent: var(--accent-color);
-    --accent-foreground: var(--accent-foreground-color);
+    --accent: 220 14% 96%;
+    --accent-foreground: 225 15% 15%;
 
+    /* Status colors */
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Form elements */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 214 84% 56%;
 
-    --radius: 0.5rem;
+    /* E-commerce specific */
+    --price: 142 76% 36%;
+    --price-strike: 0 0% 45%;
+    --rating: 45 93% 47%;
+    --badge: 214 84% 56%;
+    --sale: 0 84% 60%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 84% 56%), hsl(190 95% 45%));
+    --gradient-secondary: linear-gradient(135deg, hsl(25 95% 53%), hsl(45 93% 47%));
+    --gradient-hero: linear-gradient(135deg, hsl(214 84% 56% / 0.1), hsl(25 95% 53% / 0.1));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px hsl(220 13% 91% / 0.5);
+    --shadow-md: 0 4px 6px hsl(220 13% 91% / 0.7);
+    --shadow-lg: 0 10px 15px hsl(220 13% 91% / 0.8);
+    --shadow-product: 0 4px 12px hsl(214 84% 56% / 0.15);
+    --shadow-glow: 0 0 20px hsl(214 84% 56% / 0.3);
+
+    /* Animations */
+    --transition-fast: 0.15s ease-out;
+    --transition-normal: 0.3s ease-out;
+    --transition-slow: 0.5s ease-out;
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
+
     --sidebar-foreground: 240 5.3% 26.1%;
+
     --sidebar-primary: 240 5.9% 10%;
+
     --sidebar-primary-foreground: 0 0% 98%;
+
     --sidebar-accent: 240 4.8% 95.9%;
+
     --sidebar-accent-foreground: 240 5.9% 10%;
+
     --sidebar-border: 220 13% 91%;
+
     --sidebar-ring: 217.2 91.2% 59.8%;
-
-    /* Gradient variables */
-    --gradient-direction: to right;
-    --header-gradient: linear-gradient(var(--gradient-direction), #f8fafc, #e0f2fe);
-    --sidebar-gradient: linear-gradient(var(--gradient-direction), #ffffff, #f1f5f9);
-    --neon-glow: 0 0 12px rgba(124, 58, 237, 0.7);
-
-    /* Custom surface colors */
-    --surface: #ffffff;
-    --surface-50: #f8fafc;
-    --surface-100: #f1f5f9;
-    --surface-200: #e2e8f0;
   }
 
   .dark {
-    --color-bg: 221 39% 11%;
-    --color-surface: 240 3.7% 15.9%;
-    --color-text: 210 20% 98%;
-    --color-muted: 215 20.2% 65.1%;
+    /* Dark theme for premium e-commerce experience */
+    --background: 224 15% 7%;
+    --foreground: 0 0% 95%;
 
-    --background-color: var(--color-bg);
-    --background-color-desktop: var(--color-bg);
-    --text-color: var(--color-text);
+    --card: 224 15% 10%;
+    --card-foreground: 0 0% 95%;
+    --card-hover: 224 15% 13%;
 
-    /* Map existing tokens */
-    --background: var(--background-color);
-    --foreground: var(--text-color);
+    --popover: 224 15% 10%;
+    --popover-foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    /* Dark primary - Bright blue for contrast */
+    --primary: 214 84% 70%;
+    --primary-foreground: 224 15% 7%;
+    --primary-hover: 214 84% 60%;
+    --primary-light: 214 84% 15%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    /* Dark secondary - Bright orange */
+    --secondary: 25 95% 65%;
+    --secondary-foreground: 224 15% 7%;
+    --secondary-hover: 25 95% 55%;
+    --secondary-light: 25 95% 15%;
 
-    --primary: var(--primary-color);
-    --primary-foreground: var(--primary-color-foreground);
+    --muted: 224 15% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    --secondary: var(--secondary-color);
-    --secondary-foreground: var(--secondary-color-foreground);
+    --accent: 224 15% 15%;
+    --accent-foreground: 0 0% 95%;
 
-    --muted: var(--color-muted);
-    --muted-foreground: var(--color-text);
+    /* Dark status colors */
+    --destructive: 0 84% 70%;
+    --destructive-foreground: 224 15% 7%;
+    --success: 142 76% 50%;
+    --success-foreground: 224 15% 7%;
+    --warning: 38 92% 65%;
+    --warning-foreground: 224 15% 7%;
 
-    --accent: var(--accent-color);
-    --accent-foreground: var(--accent-foreground-color);
+    --border: 224 15% 20%;
+    --input: 224 15% 20%;
+    --ring: 214 84% 70%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    /* Dark e-commerce specific */
+    --price: 142 76% 50%;
+    --price-strike: 0 0% 55%;
+    --rating: 45 93% 60%;
+    --badge: 214 84% 70%;
+    --sale: 0 84% 70%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 84% 70%), hsl(190 95% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(25 95% 65%), hsl(45 93% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(214 84% 70% / 0.2), hsl(25 95% 65% / 0.2));
+
+    /* Dark shadows */
+    --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 10px 15px hsl(0 0% 0% / 0.5);
+    --shadow-product: 0 4px 12px hsl(214 84% 70% / 0.25);
+    --shadow-glow: 0 0 20px hsl(214 84% 70% / 0.4);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -126,244 +164,58 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-
-    /* Dark mode surface colors */
-    --surface: #0f172a;
-    --surface-50: #1e293b;
-    --surface-100: #334155;
-    --surface-200: #475569;
-
-    --header-gradient: linear-gradient(var(--gradient-direction), #1f2937, #4b5563);
-    --sidebar-gradient: linear-gradient(var(--gradient-direction), #111827, #1f2937);
   }
 }
 
-/* Base styles */
 @layer base {
   * {
     @apply border-border;
   }
 
-  html {
-    scroll-behavior: smooth;
-    font-feature-settings: "cv03", "cv04", "cv11";
-    transition: background-color 0.3s, color 0.3s;
-  }
-
   body {
-    @apply bg-background text-foreground antialiased transition-colors lg:bg-[hsl(var(--background-color-desktop))];
-    font-feature-settings: "rlig" 1, "calt" 1;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Cairo', system-ui, sans-serif;
   }
 
-  /* Arabic font optimization */
-  html[lang="ar"] {
-    font-family: 'Cairo', 'Amiri', 'Segoe UI', 'Tahoma', sans-serif;
+  /* RTL Support */
+  [dir="rtl"] {
+    font-family: 'Cairo', 'Tajawal', system-ui, sans-serif;
   }
 
-  html[lang="ar"] h1,
-  html[lang="ar"] h2,
-  html[lang="ar"] h3,
-  html[lang="ar"] h4,
-  html[lang="ar"] h5,
-  html[lang="ar"] h6 {
-    font-family: 'Cairo', 'Amiri', sans-serif;
-    font-weight: 600;
+  [dir="rtl"] .flip-x {
+    transform: scaleX(-1);
   }
 
-  /* Headings */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  /* Typography improvements for Arabic */
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+    font-weight: 700;
+    line-height: 1.4;
   }
 
-  h1 {
-    @apply text-3xl lg:text-4xl;
+  [dir="rtl"] p, [dir="rtl"] span {
+    line-height: 1.6;
   }
 
-  h2 {
-    @apply text-2xl lg:text-3xl;
-  }
-
-  h3 {
-    @apply text-xl lg:text-2xl;
-  }
-
-  h4 {
-    @apply text-lg lg:text-xl;
-  }
-
-  /* Focus styles */
-  *:focus-visible {
-    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
-  }
-
-  /* Selection styles */
-  ::selection {
-    @apply bg-primary/20 text-primary-foreground;
-  }
-}
-
-/* Component styles */
-@layer components {
-  /* Layout utilities */
-  .page-container {
-    @apply mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8;
-  }
-
-  .header-gradient {
-    background-image: var(--header-gradient);
-  }
-
-  .sidebar-gradient {
-    background-image: var(--sidebar-gradient);
-  }
-
-  .neon-shadow {
-    box-shadow: var(--neon-glow);
-  }
-
-  .content-wrapper {
-    @apply flex flex-col lg:flex-row min-h-screen overflow-hidden;
-  }
-
-  .main-content {
-    @apply flex-1 overflow-auto bg-gradient-to-br from-slate-50/50 via-blue-50/30 to-indigo-50/20 dark:from-gray-950/50 dark:via-slate-900/30 dark:to-gray-900/20;
-  }
-
-  /* Surface styles */
-  .surface {
-    @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800;
-  }
-
-  .surface-elevated {
-    @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg;
-  }
-
-  .surface-glass {
-    @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-xl;
-  }
-
-  /* Card styles */
-  .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
-  }
-
-  .card-interactive {
-    @apply transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer;
-  }
-
-  /* Text styles */
-  .text-heading {
-    @apply text-gray-900 dark:text-gray-100;
-  }
-
-  .text-body {
-    @apply text-gray-700 dark:text-gray-300;
-  }
-
-  .text-muted {
-    @apply text-gray-500 dark:text-gray-400;
-  }
-
-  .text-accent {
-    @apply text-[hsl(var(--accent-color))] dark:text-[hsl(var(--accent-color))];
-  }
-
-  /* Button variants */
-  .btn-primary {
-    @apply bg-primary text-primary-foreground font-medium px-4 py-2 rounded-lg transition-all duration-200 hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary;
-  }
-
-  .btn-secondary {
-    @apply bg-secondary text-secondary-foreground font-medium px-4 py-2 rounded-lg transition-all duration-200 hover:bg-secondary/90 focus-visible:ring-2 focus-visible:ring-secondary;
-  }
-
-  /* Navigation styles */
-  .nav-link {
-    @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 relative overflow-hidden;
-  }
-
-  .nav-link-active {
-    @apply bg-primary/10 text-primary shadow-lg shadow-primary/20;
-  }
-
-  .nav-link-inactive {
-    @apply text-gray-700 dark:text-gray-300 hover:bg-gray-100/70 dark:hover:bg-gray-800/70 hover:scale-105;
-  }
-
-  /* Sidebar specific styles */
-  .sidebar-rail {
-    @apply w-16 transition-all duration-300 ease-in-out;
-  }
-
-  .sidebar-expanded {
-    @apply w-64 transition-all duration-300 ease-in-out;
-  }
-
-  /* Scrollbar styles */
-  .scrollbar-thin {
-    scrollbar-width: thin;
-  }
-
-  .scrollbar-thumb-sidebar-accent\/30::-webkit-scrollbar-thumb {
-    background-color: hsl(var(--sidebar-accent) / 0.3);
-  }
-}
-
-/* RTL specific overrides */
-[dir="rtl"] {
-  --gradient-direction: to left;
-
-  .text-left {
-    text-align: right;
-  }
-
-  .text-right {
-    text-align: left;
-  }
-
-  .ml-auto {
-    margin-left: unset;
-    margin-right: auto;
-  }
-
-  .mr-auto {
-    margin-right: unset;
-    margin-left: auto;
-  }
-}
-
-/* Custom scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-gray-100 dark:bg-gray-800;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-400 dark:bg-gray-500;
-}
-
-/* Accessibility improvements */
-@media (prefers-reduced-motion: reduce) {
+  /* Smooth transitions for direction changes */
   * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition: margin 0.3s ease, padding 0.3s ease;
   }
-}
 
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .nav-link-active {
-    @apply ring-2 ring-primary;
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
   }
 }

@@ -1,0 +1,48 @@
+{
+  "cart": {
+    "my_cart": "سلتي",
+    "empty_cart": "سلتك فارغة",
+    "continue_shopping": "متابعة التسوق",
+    "remove_item": "إزالة المنتج",
+    "move_to_wishlist": "نقل للمفضلة",
+    "quantity": "الكمية",
+    "price": "السعر",
+    "total": "المجموع",
+    "subtotal": "المجموع الفرعي",
+    "shipping": "الشحن",
+    "tax": "الضريبة",
+    "discount": "الخصم",
+    "coupon_code": "كود الخصم",
+    "apply_coupon": "تطبيق الكوبون",
+    "proceed_to_checkout": "متابعة للدفع",
+    "update_cart": "تحديث السلة",
+    "estimated_total": "المجموع المقدر"
+  },
+  "checkout": {
+    "checkout": "الدفع",
+    "shipping_address": "عنوان الشحن",
+    "billing_address": "عنوان الفاتورة",
+    "same_as_shipping": "نفس عنوان الشحن",
+    "payment_method": "طريقة الدفع",
+    "order_summary": "ملخص الطلب",
+    "place_order": "تأكيد الطلب",
+    "order_total": "إجمالي الطلب",
+    "delivery_date": "تاريخ التسليم المقدر",
+    "guest_checkout": "الدفع كضيف",
+    "create_account": "إنشاء حساب لعملية دفع أسرع"
+  },
+  "order": {
+    "order_confirmed": "تم تأكيد الطلب",
+    "order_number": "رقم الطلب",
+    "thank_you": "شكراً لك على طلبك!",
+    "order_details": "تفاصيل الطلب",
+    "tracking_info": "معلومات التتبع",
+    "estimated_delivery": "التسليم المقدر",
+    "order_status": "حالة الطلب",
+    "pending": "قيد الانتظار",
+    "processing": "قيد المعالجة",
+    "shipped": "تم الشحن",
+    "delivered": "تم التسليم",
+    "cancelled": "ملغى"
+  }
+}

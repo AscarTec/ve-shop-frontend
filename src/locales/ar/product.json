@@ -1,0 +1,49 @@
+{
+  "details": {
+    "specifications": "المواصفات",
+    "description": "الوصف",
+    "features": "المميزات",
+    "dimensions": "الأبعاد",
+    "weight": "الوزن",
+    "warranty": "الضمان",
+    "in_stock": "متوفر",
+    "out_of_stock": "غير متوفر",
+    "limited_stock": "كمية محدودة"
+  },
+  "filters": {
+    "price_range": "نطاق السعر",
+    "rating_above": "تقييم أعلى من",
+    "brand": "العلامة التجارية",
+    "color": "اللون",
+    "size": "المقاس",
+    "availability": "التوفر",
+    "discount": "خصم",
+    "free_shipping": "شحن مجاني",
+    "apply_filters": "تطبيق الفلاتر",
+    "clear_filters": "مسح الفلاتر"
+  },
+  "sorting": {
+    "sort_by": "ترتيب حسب",
+    "popularity": "الشعبية",
+    "price_low_high": "السعر: من الأقل للأعلى",
+    "price_high_low": "السعر: من الأعلى للأقل",
+    "rating": "تقييم العملاء",
+    "newest": "الأحدث أولاً",
+    "name_az": "الاسم: أ إلى ي",
+    "name_za": "الاسم: ي إلى أ"
+  },
+  "reviews": {
+    "customer_reviews": "مراجعات العملاء",
+    "write_review": "اكتب مراجعة",
+    "rating_breakdown": "تفصيل التقييمات",
+    "verified_purchase": "شراء موثق",
+    "helpful": "مفيد",
+    "not_helpful": "غير مفيد",
+    "report": "إبلاغ",
+    "sort_reviews": "ترتيب المراجعات",
+    "most_recent": "الأحدث",
+    "most_helpful": "الأكثر فائدة",
+    "highest_rating": "أعلى تقييم",
+    "lowest_rating": "أقل تقييم"
+  }
+}

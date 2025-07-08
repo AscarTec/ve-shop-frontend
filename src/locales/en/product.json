@@ -1,0 +1,49 @@
+{
+  "details": {
+    "specifications": "Specifications",
+    "description": "Description",
+    "features": "Features",
+    "dimensions": "Dimensions",
+    "weight": "Weight",
+    "warranty": "Warranty",
+    "in_stock": "In Stock",
+    "out_of_stock": "Out of Stock",
+    "limited_stock": "Limited Stock"
+  },
+  "filters": {
+    "price_range": "Price Range",
+    "rating_above": "Rating Above",
+    "brand": "Brand",
+    "color": "Color",
+    "size": "Size",
+    "availability": "Availability",
+    "discount": "Discount",
+    "free_shipping": "Free Shipping",
+    "apply_filters": "Apply Filters",
+    "clear_filters": "Clear Filters"
+  },
+  "sorting": {
+    "sort_by": "Sort By",
+    "popularity": "Popularity",
+    "price_low_high": "Price: Low to High",
+    "price_high_low": "Price: High to Low",
+    "rating": "Customer Rating",
+    "newest": "Newest First",
+    "name_az": "Name: A to Z",
+    "name_za": "Name: Z to A"
+  },
+  "reviews": {
+    "customer_reviews": "Customer Reviews",
+    "write_review": "Write a Review",
+    "rating_breakdown": "Rating Breakdown",
+    "verified_purchase": "Verified Purchase",
+    "helpful": "Helpful",
+    "not_helpful": "Not Helpful",
+    "report": "Report",
+    "sort_reviews": "Sort Reviews",
+    "most_recent": "Most Recent",
+    "most_helpful": "Most Helpful",
+    "highest_rating": "Highest Rating",
+    "lowest_rating": "Lowest Rating"
+  }
+}
