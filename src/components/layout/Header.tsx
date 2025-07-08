@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useCartStore } from "@/store/cartStore";
 import { useWishlistStore } from "@/store/wishlistStore";
+import { NotificationCenter } from "@/components/notifications/NotificationCenter";
 
 export const Header = () => {
   const { t } = useTranslation('common');
@@ -70,8 +71,16 @@ export const Header = () => {
               )}
             </Button>
 
+            {/* Notifications */}
+            <NotificationCenter />
+
             {/* Cart */}
-            <Button variant="ghost" size="icon" className="relative">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="relative"
+              onClick={() => navigate('/checkout')}
+            >
               <ShoppingCart className="w-5 h-5" />
               {cartCount > 0 && (
                 <Badge 
