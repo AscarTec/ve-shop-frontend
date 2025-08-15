@@ -2,220 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ve-Shop E-commerce Design System 
-Modern marketplace colors optimized for trust, conversion, and user experience.
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    /* Base colors */
     --background: 0 0% 100%;
-    --foreground: 225 15% 15%;
-
-    /* Card and surface colors */
-    --card: 0 0% 100%;
-    --card-foreground: 225 15% 15%;
-    --card-hover: 220 14% 96%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 225 15% 15%;
-
-    /* E-commerce primary - Trust blue */
-    --primary: 214 84% 56%;
-    --primary-foreground: 0 0% 100%;
-    --primary-hover: 214 84% 46%;
-    --primary-light: 214 100% 97%;
-
-    /* E-commerce secondary - Action orange */
-    --secondary: 25 95% 53%;
-    --secondary-foreground: 0 0% 100%;
-    --secondary-hover: 25 95% 43%;
-    --secondary-light: 25 100% 97%;
-
-    /* Neutral grays */
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 8.9% 46.1%;
-
-    --accent: 220 14% 96%;
-    --accent-foreground: 225 15% 15%;
-
-    /* Status colors */
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-    --success: 142 76% 36%;
-    --success-foreground: 0 0% 100%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 0 0% 100%;
-
-    /* Form elements */
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 214 84% 56%;
-
-    /* E-commerce specific */
-    --price: 142 76% 36%;
-    --price-strike: 0 0% 45%;
-    --rating: 45 93% 47%;
-    --badge: 214 84% 56%;
-    --sale: 0 84% 60%;
-
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(214 84% 56%), hsl(190 95% 45%));
-    --gradient-secondary: linear-gradient(135deg, hsl(25 95% 53%), hsl(45 93% 47%));
-    --gradient-hero: linear-gradient(135deg, hsl(214 84% 56% / 0.1), hsl(25 95% 53% / 0.1));
-
-    /* Shadows */
-    --shadow-sm: 0 1px 2px hsl(220 13% 91% / 0.5);
-    --shadow-md: 0 4px 6px hsl(220 13% 91% / 0.7);
-    --shadow-lg: 0 10px 15px hsl(220 13% 91% / 0.8);
-    --shadow-product: 0 4px 12px hsl(214 84% 56% / 0.15);
-    --shadow-glow: 0 0 20px hsl(214 84% 56% / 0.3);
-
-    /* Animations */
-    --transition-fast: 0.15s ease-out;
-    --transition-normal: 0.3s ease-out;
-    --transition-slow: 0.5s ease-out;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    /* Dark theme for premium e-commerce experience */
-    --background: 224 15% 7%;
-    --foreground: 0 0% 95%;
-
-    --card: 224 15% 10%;
-    --card-foreground: 0 0% 95%;
-    --card-hover: 224 15% 13%;
-
-    --popover: 224 15% 10%;
-    --popover-foreground: 0 0% 95%;
-
-    /* Dark primary - Bright blue for contrast */
-    --primary: 214 84% 70%;
-    --primary-foreground: 224 15% 7%;
-    --primary-hover: 214 84% 60%;
-    --primary-light: 214 84% 15%;
-
-    /* Dark secondary - Bright orange */
-    --secondary: 25 95% 65%;
-    --secondary-foreground: 224 15% 7%;
-    --secondary-hover: 25 95% 55%;
-    --secondary-light: 25 95% 15%;
-
-    --muted: 224 15% 15%;
-    --muted-foreground: 0 0% 60%;
-
-    --accent: 224 15% 15%;
-    --accent-foreground: 0 0% 95%;
-
-    /* Dark status colors */
-    --destructive: 0 84% 70%;
-    --destructive-foreground: 224 15% 7%;
-    --success: 142 76% 50%;
-    --success-foreground: 224 15% 7%;
-    --warning: 38 92% 65%;
-    --warning-foreground: 224 15% 7%;
-
-    --border: 224 15% 20%;
-    --input: 224 15% 20%;
-    --ring: 214 84% 70%;
-
-    /* Dark e-commerce specific */
-    --price: 142 76% 50%;
-    --price-strike: 0 0% 55%;
-    --rating: 45 93% 60%;
-    --badge: 214 84% 70%;
-    --sale: 0 84% 70%;
-
-    /* Dark gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(214 84% 70%), hsl(190 95% 55%));
-    --gradient-secondary: linear-gradient(135deg, hsl(25 95% 65%), hsl(45 93% 60%));
-    --gradient-hero: linear-gradient(135deg, hsl(214 84% 70% / 0.2), hsl(25 95% 65% / 0.2));
-
-    /* Dark shadows */
-    --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.3);
-    --shadow-md: 0 4px 6px hsl(0 0% 0% / 0.4);
-    --shadow-lg: 0 10px 15px hsl(0 0% 0% / 0.5);
-    --shadow-product: 0 4px 12px hsl(214 84% 70% / 0.25);
-    --shadow-glow: 0 0 20px hsl(214 84% 70% / 0.4);
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --foreground: 222.2 84% 4.9%;
+    --primary: 220 60% 31%;
+    --primary-foreground: 210 40% 98%;
+    --accent: 44 65% 53%; /* Gold */
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%;
+    --radius: 0.5rem;
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
+@layer components {
+  .mobile-layout {
+    @apply text-sm;
   }
 
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', 'Cairo', system-ui, sans-serif;
+  .desktop-layout {
+    @apply text-base;
   }
 
-  /* RTL Support */
-  [dir="rtl"] {
-    font-family: 'Cairo', 'Tajawal', system-ui, sans-serif;
+  .mobile-main {
+    @apply px-3;
   }
 
-  [dir="rtl"] .flip-x {
-    transform: scaleX(-1);
+  .desktop-main {
+    @apply px-6 lg:px-8;
   }
 
-  /* Typography improvements for Arabic */
-  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
-    font-weight: 700;
-    line-height: 1.4;
+  .standalone-sidebar {
+    padding-top: calc(env(safe-area-inset-top) + 1rem);
+    padding-bottom: calc(env(safe-area-inset-bottom) + 1rem);
   }
+}
 
-  [dir="rtl"] p, [dir="rtl"] span {
-    line-height: 1.6;
-  }
-
-  /* Smooth transitions for direction changes */
-  * {
-    transition: margin 0.3s ease, padding 0.3s ease;
-  }
-
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: hsl(var(--muted));
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: hsl(var(--muted-foreground) / 0.3);
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--muted-foreground) / 0.5);
+@layer utilities {
+  /* Mobile specific breakpoint */
+  @media (max-width: 768px) {
+    .touch-target {
+      @apply min-h-[44px] min-w-[44px];
+    }
   }
 }
