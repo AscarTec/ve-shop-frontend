@@ -4,12 +4,14 @@ import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 import { VitePWA } from 'vite-plugin-pwa';
 import { componentTagger } from 'lovable-tagger';
-import { splitVendorChunkPlugin } from 'vite';
 
 export default defineConfig(({ mode }) => ({
   server: {
     port: 8080,
-    host: '::',
+    host: true,
+    hmr: {
+      port: 8080,
+    },
     proxy: {
       '/broadcasting': 'http://127.0.0.1:8000',
       '/socket.io': {
@@ -81,6 +83,7 @@ export default defineConfig(({ mode }) => ({
         ],
       },
     }),
+    componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
