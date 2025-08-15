@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '@/components/auth/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -10,7 +10,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { useTranslation } from 'react-i18next';
 import { 
   User, 
   Mail, 
@@ -29,7 +28,6 @@ import {
 import { useOrderStore } from '@/stores/orderStore';
 
 export default function Profile() {
-  const { t } = useTranslation();
   const { user, logout } = useAuth();
   const { orders } = useOrderStore();
   const [isEditing, setIsEditing] = useState(false);
@@ -62,23 +60,23 @@ export default function Profile() {
   return (
     <div className="container mx-auto p-6 space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">{t('ui.profile.title')}</h1>
+        <h1 className="text-3xl font-bold">Profile</h1>
         <Button
           variant="outline"
           onClick={() => setIsEditing(!isEditing)}
           className="flex items-center gap-2"
         >
           <Edit2 className="h-4 w-4" />
-          {isEditing ? t('ui.common.cancel') : t('ui.common.edit')}
+          {isEditing ? 'Cancel' : 'Edit'}
         </Button>
       </div>
 
       <Tabs defaultValue="profile" className="space-y-6">
         <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="profile">{t('ui.profile.tabs.profile')}</TabsTrigger>
-          <TabsTrigger value="orders">{t('ui.profile.tabs.orders')}</TabsTrigger>
-          <TabsTrigger value="addresses">{t('ui.profile.tabs.addresses')}</TabsTrigger>
-          <TabsTrigger value="settings">{t('ui.profile.tabs.settings')}</TabsTrigger>
+          <TabsTrigger value="profile">Profile</TabsTrigger>
+          <TabsTrigger value="orders">Orders</TabsTrigger>
+          <TabsTrigger value="addresses">Addresses</TabsTrigger>
+          <TabsTrigger value="settings">Settings</TabsTrigger>
         </TabsList>
 
         <TabsContent value="profile" className="space-y-6">
@@ -114,7 +112,7 @@ export default function Profile() {
             <CardContent className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">{t('ui.profile.fields.name')}</Label>
+                  <Label htmlFor="name">Name</Label>
                   <Input
                     id="name"
                     value={formData.name}
@@ -124,7 +122,7 @@ export default function Profile() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">{t('ui.profile.fields.email')}</Label>
+                  <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
                     type="email"
@@ -134,7 +132,7 @@ export default function Profile() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone">{t('ui.profile.fields.phone')}</Label>
+                  <Label htmlFor="phone">Phone</Label>
                   <Input
                     id="phone"
                     value={formData.phone}
@@ -143,7 +141,7 @@ export default function Profile() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="address">{t('ui.profile.fields.address')}</Label>
+                  <Label htmlFor="address">Address</Label>
                   <Input
                     id="address"
                     value={formData.address}
@@ -153,7 +151,7 @@ export default function Profile() {
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="bio">{t('ui.profile.fields.bio')}</Label>
+                <Label htmlFor="bio">Bio</Label>
                 <Textarea
                   id="bio"
                   value={formData.bio}
@@ -165,7 +163,7 @@ export default function Profile() {
               {isEditing && (
                 <Button onClick={handleSave} className="flex items-center gap-2">
                   <Save className="h-4 w-4" />
-                  {t('ui.common.save')}
+                  Save
                 </Button>
               )}
             </CardContent>
@@ -177,17 +175,17 @@ export default function Profile() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Package className="h-5 w-5" />
-                {t('ui.profile.orders.title')}
+                Order History
               </CardTitle>
               <CardDescription>
-                {t('ui.profile.orders.description')}
+                View your recent orders
               </CardDescription>
             </CardHeader>
             <CardContent>
               {recentOrders.length === 0 ? (
                 <div className="text-center py-8 text-muted-foreground">
                   <Package className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                  <p>{t('ui.profile.orders.empty')}</p>
+                  <p>No orders yet</p>
                 </div>
               ) : (
                 <div className="space-y-4">
@@ -210,10 +208,10 @@ export default function Profile() {
                       <Separator />
                       <div className="flex items-center justify-between">
                         <p className="text-sm">
-                          {order.items.length} {t('ui.common.items')}
+                          {order.items.length} items
                         </p>
                         <Button variant="outline" size="sm">
-                          {t('ui.common.viewDetails')}
+                          View Details
                         </Button>
                       </div>
                     </div>
@@ -231,21 +229,21 @@ export default function Profile() {
                 <div>
                   <CardTitle className="flex items-center gap-2">
                     <MapPin className="h-5 w-5" />
-                    {t('ui.profile.addresses.title')}
+                    Addresses
                   </CardTitle>
                   <CardDescription>
-                    {t('ui.profile.addresses.description')}
+                    Manage your saved addresses
                   </CardDescription>
                 </div>
                 <Button>
-                  {t('ui.profile.addresses.add')}
+                  Add Address
                 </Button>
               </div>
             </CardHeader>
             <CardContent>
               <div className="text-center py-8 text-muted-foreground">
                 <MapPin className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                <p>{t('ui.profile.addresses.empty')}</p>
+                <p>No addresses saved</p>
               </div>
             </CardContent>
           </Card>
@@ -256,44 +254,44 @@ export default function Profile() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Settings className="h-5 w-5" />
-                {t('ui.profile.settings.title')}
+                Settings
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium">{t('ui.profile.settings.notifications')}</p>
+                    <p className="font-medium">Notifications</p>
                     <p className="text-sm text-muted-foreground">
-                      {t('ui.profile.settings.notificationsDesc')}
+                      Manage your notification preferences
                     </p>
                   </div>
                   <Button variant="outline" size="sm">
-                    {t('ui.common.manage')}
+                    Manage
                   </Button>
                 </div>
                 <Separator />
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium">{t('ui.profile.settings.privacy')}</p>
+                    <p className="font-medium">Privacy</p>
                     <p className="text-sm text-muted-foreground">
-                      {t('ui.profile.settings.privacyDesc')}
+                      Control your privacy settings
                     </p>
                   </div>
                   <Button variant="outline" size="sm">
-                    {t('ui.common.manage')}
+                    Manage
                   </Button>
                 </div>
                 <Separator />
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium text-red-600">{t('ui.profile.settings.deleteAccount')}</p>
+                    <p className="font-medium text-red-600">Delete Account</p>
                     <p className="text-sm text-muted-foreground">
-                      {t('ui.profile.settings.deleteAccountDesc')}
+                      Permanently delete your account
                     </p>
                   </div>
                   <Button variant="outline" size="sm" className="text-red-600 hover:text-red-700">
-                    {t('ui.common.delete')}
+                    Delete
                   </Button>
                 </div>
               </div>
