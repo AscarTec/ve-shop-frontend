@@ -1,0 +1,58 @@
+
+:root {
+  /* Base colors */
+  --background: 255 255 255;
+  --foreground: 17 24 39;
+  --card: 255 255 255;
+  --card-foreground: 17 24 39;
+  --border: 229 231 235;
+  --ring: 60 64 198;
+  
+  /* Semantic colors */
+  --primary: 60 64 198;
+  --primary-foreground: 255 255 255;
+  --secondary: 5 150 160;
+  --accent: 99 102 241;
+  --muted: 107 114 128;
+  --muted-foreground: 156 163 175;
+  
+  /* Status colors */
+  --success: 16 185 129;
+  --warning: 245 158 11;
+  --destructive: 239 68 68;
+  
+  /* Heat map scale */
+  --heat-1: 236 253 245;
+  --heat-2: 167 243 208;
+  --heat-3: 16 185 129;
+  --heat-4: 5 150 105;
+  --heat-5: 6 95 70;
+  
+  /* Chart colors */
+  --chart-1: 60 64 198;
+  --chart-2: 5 150 160;
+  --chart-3: 99 102 241;
+  --chart-4: 245 158 11;
+  --chart-5: 239 68 68;
+  --chart-6: 16 185 129;
+}
+
+.dark {
+  --background: 3 7 18;
+  --foreground: 243 244 246;
+  --card: 9 13 28;
+  --card-foreground: 243 244 246;
+  --border: 31 41 55;
+  --ring: 99 102 241;
+  --muted: 75 85 99;
+  --muted-foreground: 156 163 175;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="ltr"] {
+  text-align: left;
+}
